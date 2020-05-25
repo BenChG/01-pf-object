@@ -1,16 +1,18 @@
-/*
 #ifndef PERSONALFINANCES_H
 #define PERSONALFINANCES_H
 
 #include <iostream>
+#include "AdjunctiveMethods.h"
 
 using namespace std;
 
 class PersonalFinances
 {
-    cout << "Hello world!" << endl;
-    return 0;
-}
+    AdjunctiveMethods adjunctiveMethods;
+
+    public:
+    char selectOptionFromLoggingMenu();
+};
 
 #endif
-/*
+

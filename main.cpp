@@ -1,30 +1,32 @@
 #include <iostream>
-#include "User.h"
+#include "PersonalFinances.h"
 
 using namespace std;
 
 int main()
 {
-    User user;
-    /*
-  PersonalFinances personalFinances ("User.xml");
+  PersonalFinances personalFinances;
 
     int idOfLoggedInUser=0;
     char choice;
 
     while(true)
     {
-        if (personalFinances.downloadIdOfLoggedInUser()==0)
+        if (idOfLoggedInUser==0)
         {
            choice = personalFinances.selectOptionFromLoggingMenu();
 
-            switch (wybor)
+            switch (choice)
             {
             case '1':
-                personalFinances.userRegistration();
+                cout << "Choosen option 1." << endl;
+                  system("pause");
+               // personalFinances.userRegistration();
                 break;
             case '2':
-               idOfLoggedInUser=personalFinances.loggInUser();
+                 cout << "Choosen option 2." << endl;
+                   system("pause");
+               //idOfLoggedInUser=personalFinances.loggInUser();
                 break;
             case '9':
                 exit(0);
@@ -76,10 +78,10 @@ int main()
                 cout << endl << "Nie ma takiej opcji w menu." << endl << endl;
                 system("pause");
                 break;
-            }
-        }
+            }*/
     }
- */
+        }
+
     return 0;
 }
 
