@@ -2,13 +2,16 @@
 #define ADJUNCTIVEMETHODS_H
 
 #include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
-int main()
+class AdjunctiveMethods
 {
-    cout << "Hello world!" << endl;
-    return 0;
-}
+
+    public:
+    char selectOptionFromLoggingMenu();
+    char loadSign();
+};
 
 #endif
