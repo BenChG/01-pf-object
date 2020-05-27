@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-  PersonalFinances personalFinances;
+  PersonalFinances personalFinances ("users.xml");
 
     int idOfLoggedInUser=0;
     char choice;
@@ -19,9 +19,7 @@ int main()
             switch (choice)
             {
             case '1':
-                cout << "Choosen option 1." << endl;
-                  system("pause");
-               // personalFinances.userRegistration();
+               personalFinances.userRegistration();
                 break;
             case '2':
                  cout << "Choosen option 2." << endl;
