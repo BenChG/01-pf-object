@@ -34,3 +34,10 @@ char AdjunctiveMethods::selectOptionFromLoggingMenu()
     choice = loadSign();
     return choice;
 }
+
+string AdjunctiveMethods::loadLines()
+{
+    string input = "";
+    getline(cin, input);
+    return input;
+}

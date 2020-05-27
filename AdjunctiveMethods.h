@@ -12,6 +12,7 @@ class AdjunctiveMethods
     public:
     char selectOptionFromLoggingMenu();
     char loadSign();
+    string loadLines();
 };
 
 #endif
