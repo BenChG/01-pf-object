@@ -9,3 +9,8 @@ void PersonalFinances::userRegistration()
 {
     userManager.userRegistration();
 }
+
+int PersonalFinances::loggInUser()
+{
+    userManager.loggInUser();
+}

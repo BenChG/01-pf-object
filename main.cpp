@@ -22,9 +22,7 @@ int main()
                personalFinances.userRegistration();
                 break;
             case '2':
-                 cout << "Choosen option 2." << endl;
-                   system("pause");
-               //idOfLoggedInUser=personalFinances.loggInUser();
+               idOfLoggedInUser=personalFinances.loggInUser();
                 break;
             case '9':
                 exit(0);
@@ -34,10 +32,14 @@ int main()
                 system("pause");
                 break;
             }
+
+            cout<<"IdOfLoggedInUser: "<<idOfLoggedInUser << endl;
         }
 
         else
         {
+            cout << endl << "Udaaaalo sie zalogowac!!!!!!" << endl << endl;
+                system("pause");
             /*char wybor;
 
             wybor = personalFinances.wybierzOpcjeZMenuGlownego();
