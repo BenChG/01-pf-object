@@ -29,6 +29,9 @@ class UserManager
     };
 
     User userRegistration();
+    int loggInUser();
+    int findUser(User user, string login);
+
 };
 
 #endif
