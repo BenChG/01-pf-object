@@ -32,53 +32,54 @@ int main()
                 system("pause");
                 break;
             }
-
-            cout<<"IdOfLoggedInUser: "<<idOfLoggedInUser << endl;
         }
 
         else
         {
-            cout << endl << "Udaaaalo sie zalogowac!!!!!!" << endl << endl;
-                system("pause");
-            /*char wybor;
+           choice = personalFinances.selectOptionFromMainMenu();
 
-            wybor = personalFinances.wybierzOpcjeZMenuGlownego();
-
-            switch (wybor)
+            switch (choice)
             {
             case '1':
-                personalFinances.dodajAdresata();
+                cout << "Option 1 selected" << endl;
+                system ("pause");
+                //personalFinances.addNewIncome();
                 break;
             case '2':
-                personalFinances.wyszukajPoImieniu();
+                cout << "Option 2 selected" << endl;
+                system ("pause");
+                //personalFinances.addNewExpense();
                 break;
             case '3':
-                personalFinances.wyszukajPoNazwisku();
+                cout << "Option 3 selected" << endl;
+                system ("pause");
+                //personalFinances.balanceOfCurrentMonth();
                 break;
             case '4':
-                personalFinances.wyswietlWszystkichAdresatow();
+                cout << "Option 4 selected" << endl;
+                system ("pause");
+                //personalFinances.balanceOfPreviousMonth();
                 break;
             case '5':
-                personalFinances.usunAdresata();
+                cout << "Option 5 selected" << endl;
+                system ("pause");
+                //personalFinances.balanceOfSelectedPeriod();
                 break;
             case '6':
-                personalFinances.wyszukajAdresataDoEdycji();
+                cout << "Option 6 selected" << endl;
+                system ("pause");
+                //personalFinances.changeThePassword();
                 break;
             case '7':
-                personalFinances.zmianaHaslaUzytkownika();
-                break;
-            case '8':
-                personalFinances.wylogujUzytkownika();
-                break;
-            case '9':
-                exit(0);
+                cout << "Option 7 selected" << endl;
+                system ("pause");
+                //personalFinances.logOff);
                 break;
             default:
-
-                cout << endl << "Nie ma takiej opcji w menu." << endl << endl;
+                cout << endl << "There is no such option in Menu" << endl << endl;
                 system("pause");
                 break;
-            }*/
+            }
     }
         }
 

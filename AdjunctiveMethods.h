@@ -8,11 +8,12 @@ using namespace std;
 
 class AdjunctiveMethods
 {
-
+    char choice;
     public:
     char selectOptionFromLoggingMenu();
     char loadSign();
     string loadLines();
+     char selectOptionFromMainMenu();
 };
 
 #endif
