@@ -54,6 +54,7 @@ int UserManager::findUser(User user, string login)
 
                 isPasswordCorrect = "YES";
                 idOfLoggedInUser=user.downloadUserId();
+                cout<<" idOfLoggedInUser" <<  idOfLoggedInUser << endl;
                 i=2;
             }
         }
@@ -80,7 +81,6 @@ int UserManager::loggInUser()
         for (vector <User> :: iterator itr = users.begin(); itr != users.end(); itr++)
         {
             idOfLoggedInUser=findUser(*itr, login);
-
             if (idOfLoggedInUser!=0)
             {
                 return idOfLoggedInUser;
