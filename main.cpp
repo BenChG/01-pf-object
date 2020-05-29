@@ -22,7 +22,7 @@ int main()
                personalFinances.userRegistration();
                 break;
             case '2':
-               idOfLoggedInUser=personalFinances.loggInUser();
+               idOfLoggedInUser=personalFinances.logInUser();
                 break;
             case '9':
                 exit(0);
@@ -71,9 +71,7 @@ int main()
                 //personalFinances.changeThePassword();
                 break;
             case '7':
-                cout << "Option 7 selected" << endl;
-                system ("pause");
-                //personalFinances.logOff);
+                idOfLoggedInUser=personalFinances.logOffUser();
                 break;
             default:
                 cout << endl << "There is no such option in Menu" << endl << endl;

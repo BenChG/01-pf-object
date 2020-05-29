@@ -69,7 +69,7 @@ int UserManager::findUser(User user, string login)
     return idOfLoggedInUser;
 }
 
-int UserManager::loggInUser()
+int UserManager::logInUser()
 {
     if (!users.empty())
     {
@@ -98,4 +98,10 @@ int UserManager::loggInUser()
         system ("pause");
         return idOfLoggedInUser;
     }
+}
+
+int UserManager::logOffUser()
+{
+ idOfLoggedInUser=0;
+ return idOfLoggedInUser;
 }
