@@ -10,12 +10,17 @@ void PersonalFinances::userRegistration()
     userManager.userRegistration();
 }
 
-int PersonalFinances::loggInUser()
+int PersonalFinances::logInUser()
 {
-    userManager.loggInUser();
+    userManager.logInUser();
 }
 
 char PersonalFinances::selectOptionFromMainMenu()
 {
     adjunctiveMethods.selectOptionFromMainMenu();
+}
+
+int PersonalFinances::logOffUser()
+{
+    userManager.logOffUser();
 }

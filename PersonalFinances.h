@@ -31,8 +31,9 @@ public:
 
     char selectOptionFromLoggingMenu();
     void userRegistration();
-    int loggInUser();
+    int logInUser();
     char selectOptionFromMainMenu();
+    int logOffUser();
 };
 
 #endif
