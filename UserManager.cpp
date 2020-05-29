@@ -54,7 +54,6 @@ int UserManager::findUser(User user, string login)
 
                 isPasswordCorrect = "YES";
                 idOfLoggedInUser=user.downloadUserId();
-                cout<<" idOfLoggedInUser" <<  idOfLoggedInUser << endl;
                 i=2;
             }
         }

@@ -14,3 +14,8 @@ int PersonalFinances::loggInUser()
 {
     userManager.loggInUser();
 }
+
+char PersonalFinances::selectOptionFromMainMenu()
+{
+    adjunctiveMethods.selectOptionFromMainMenu();
+}
