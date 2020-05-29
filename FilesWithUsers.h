@@ -19,9 +19,11 @@ class FilesWithUsers
 
 public:
     FilesWithUsers(string nameOfFileWithUsers)
-        : NAME_OF_FILE_WITH_USERS (nameOfFileWithUsers){};
+        : NAME_OF_FILE_WITH_USERS (nameOfFileWithUsers)
+        {};
 
   void addNewUserToTheFileWithUsers(int id, string login, string password, string firstName, string lastName);
+  vector <User> loadUsersFromTheFile();
 };
 
 #endif

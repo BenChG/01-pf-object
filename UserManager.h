@@ -24,7 +24,7 @@ class UserManager
         : filesWithUsers(nameOfFileWithUsers),
           NAME_OF_FILE_WITH_USERS (nameOfFileWithUsers)
     {
-        //users=filesWithUsers.loadUsersFromFile();
+        users=filesWithUsers.loadUsersFromTheFile();
         idOfLoggedInUser=0;
     };
 
