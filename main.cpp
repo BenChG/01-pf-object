@@ -48,7 +48,7 @@ int main()
             case '2':
                 cout << "Option 2 selected" << endl;
                 system ("pause");
-                //personalFinances.addNewExpense();
+                personalFinances.addNewExpense();
                 break;
             case '3':
                 cout << "Option 3 selected" << endl;

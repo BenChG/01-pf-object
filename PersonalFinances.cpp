@@ -33,3 +33,12 @@ void PersonalFinances::addNewIncome()
     cout << setprecision(2) << fixed << income.downloadIncomeAmount() << endl;
     system ("pause");
 }
+
+void PersonalFinances::addNewExpense()
+{
+    cout << expense.downloadExpenseId() << endl;
+    cout << expense.downloadExpenseDate() << endl;
+    cout << expense.downloadExpenseName() << endl;
+    cout << setprecision(2) << fixed << expense.downloadExpenseAmount() << endl;
+    system ("pause");
+}

@@ -8,6 +8,7 @@
 #include "AdjunctiveMethods.h"
 #include "UserManager.h"
 #include "Income.h"
+#include "Expense.h"
 
 using namespace std;
 
@@ -17,6 +18,7 @@ class PersonalFinances
     UserManager userManager;
     const string NAME_OF_FILE_WITH_USERS;
     Income income;
+    Expense expense;
 
 public:
     PersonalFinances(string nameOfFileWithUsers)
@@ -38,6 +40,7 @@ public:
     char selectOptionFromMainMenu();
     int logOffUser();
     void addNewIncome();
+    void addNewExpense();
 };
 
 #endif
