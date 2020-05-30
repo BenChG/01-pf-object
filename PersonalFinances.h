@@ -3,9 +3,11 @@
 
 #include <iostream>
 #include <vector>
+#include <iomanip>
 
 #include "AdjunctiveMethods.h"
 #include "UserManager.h"
+#include "Income.h"
 
 using namespace std;
 
@@ -14,6 +16,7 @@ class PersonalFinances
     AdjunctiveMethods adjunctiveMethods;
     UserManager userManager;
     const string NAME_OF_FILE_WITH_USERS;
+    Income income;
 
 public:
     PersonalFinances(string nameOfFileWithUsers)
@@ -34,6 +37,7 @@ public:
     int logInUser();
     char selectOptionFromMainMenu();
     int logOffUser();
+    void addNewIncome();
 };
 
 #endif

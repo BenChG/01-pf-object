@@ -43,7 +43,7 @@ int main()
             case '1':
                 cout << "Option 1 selected" << endl;
                 system ("pause");
-                //personalFinances.addNewIncome();
+                personalFinances.addNewIncome();
                 break;
             case '2':
                 cout << "Option 2 selected" << endl;
