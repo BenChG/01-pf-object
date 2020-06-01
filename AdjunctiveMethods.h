@@ -13,6 +13,7 @@ class AdjunctiveMethods
     char selectOptionFromLoggingMenu();
     char loadSign();
     string loadLines();
+    float loadValue();
      char selectOptionFromMainMenu();
 };
 

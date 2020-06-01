@@ -58,3 +58,10 @@ string AdjunctiveMethods::loadLines()
     getline(cin, input);
     return input;
 }
+
+float AdjunctiveMethods::loadValue()
+{
+    float input = 0;
+    cin >> input;
+    return input;
+}
