@@ -14,15 +14,13 @@ class UserManager
     FilesWithUsers filesWithUsers;
     AdjunctiveMethods adjunctiveMethods;
 
-    const string NAME_OF_FILE_WITH_USERS;
     vector <User> users;
     int idOfLoggedInUser;
 
     public:
 
          UserManager(string nameOfFileWithUsers)
-        : filesWithUsers(nameOfFileWithUsers),
-          NAME_OF_FILE_WITH_USERS (nameOfFileWithUsers)
+        : filesWithUsers(nameOfFileWithUsers)
     {
         users=filesWithUsers.loadUsersFromTheFile();
         idOfLoggedInUser=0;

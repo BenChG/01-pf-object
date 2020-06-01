@@ -3,12 +3,12 @@
 
 #include <iostream>
 #include <vector>
-#include <iomanip>
+
 
 #include "AdjunctiveMethods.h"
 #include "UserManager.h"
-#include "Income.h"
-#include "Expense.h"
+#include "FinanceManager.h"
+#include "DateMethods.h"
 
 using namespace std;
 
@@ -16,14 +16,12 @@ class PersonalFinances
 {
     AdjunctiveMethods adjunctiveMethods;
     UserManager userManager;
-    const string NAME_OF_FILE_WITH_USERS;
-    Income income;
-    Expense expense;
+    FinanceManager financeManager;
 
 public:
-    PersonalFinances(string nameOfFileWithUsers)
+    PersonalFinances(string nameOfFileWithUsers, string nameOfFileWithIncomes, string nameOfFileWithExpenses)
         : userManager(nameOfFileWithUsers),
-          NAME_OF_FILE_WITH_USERS (nameOfFileWithUsers)
+          financeManager (nameOfFileWithIncomes, nameOfFileWithExpenses)
     {
         //adresatMenedzer = NULL;
     };
