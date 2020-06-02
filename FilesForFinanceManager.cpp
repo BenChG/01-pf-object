@@ -90,3 +90,34 @@ vector <Income> FilesForFinanceManager::loadIncomesFromTheFile ()
     return incomes;
 }
 
+vector <Expense> FilesForFinanceManager::loadExpensesFromTheFile ()
+{
+    CMarkup xml;
+
+    bool fileExists = xml.Load( "expenses.xml" );
+    xml.FindElem();
+    xml.IntoElem();
+    while (xml.FindElem("Expense") )
+    {
+        xml.IntoElem();
+        xml.FindElem( "Id" );
+        int expenseId = atoi(MCD_2PCSZ(xml.GetData()));
+        xml.FindElem( "Date" );
+        string date = xml.GetData();
+        xml.FindElem( "Name" );
+        string name = xml.GetData();
+        xml.FindElem( "Amount" );
+        float amount = atoi(MCD_2PCSZ(xml.GetData()));
+        xml.OutOfElem();
+
+        expense.setExpenseId(expenseId);
+        expense.setExpenseDate(date);
+        expense.setExpenseName(name);
+        expense.setExpenseAmount(amount);
+
+        expenses.push_back(expense);
+    }
+
+    return expenses;
+}
+
