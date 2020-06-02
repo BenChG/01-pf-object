@@ -1,7 +1,6 @@
-/*
 #include "FilesForFinanceManager.h"
 
-void FilesForFinanceManager::addNewIncomeToFileWithIncomes(int id, string date, string name, float amount)
+void FilesForFinanceManager::addNewIncomeToTheFileWithIncomes(int id, string date, string name, float amount)
 {
     CMarkup xml;
 
@@ -18,9 +17,9 @@ void FilesForFinanceManager::addNewIncomeToFileWithIncomes(int id, string date, 
     xml.AddElem("Income");
     xml.IntoElem();
     xml.AddElem("Id", id);
-    xml.AddElem("Date", login);
-    xml.AddElem("Name", password);
-    xml.AddElem("Amount", firstName);
+    xml.AddElem("Date", date);
+    xml.AddElem("Name", name);
+    xml.AddElem("Amount", amount);
 
     xml.Save(NAME_OF_FILE_WITH_INCOMES);
 

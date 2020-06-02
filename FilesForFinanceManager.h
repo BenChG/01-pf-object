@@ -27,7 +27,7 @@ public:
           NAME_OF_FILE_WITH_EXPENSES (nameOfFileWithExpenses)
         {};
 
-  //void addNewUserToTheFileWithUsers(int id, string login, string password, string firstName, string lastName);
+  void addNewIncomeToTheFileWithIncomes(int id, string date, string name, float amount);
   //vector <User> loadUsersFromTheFile();
 };
 
