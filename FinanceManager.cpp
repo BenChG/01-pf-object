@@ -31,20 +31,52 @@ Income FinanceManager::addNewIncome()
     return income;
 }
 
-void FinanceManager::wyswietl(Income income)
+Expense FinanceManager::addNewExpense()
+{
+    Expense expense;
+    AdjunctiveMethods adjunctiveMethods;
+
+    string expenseDate;
+    string expenseName;
+    float expenseAmount;
+
+    int expenseId=expenses.size()+1;
+
+    cout << "Give me expense date: " << endl;
+    expenseDate = adjunctiveMethods.loadLines();
+
+    cout << "Give me expense name: " << endl;
+    expenseName = adjunctiveMethods.loadLines();
+
+    cout << "Give me expense amount: " << endl;
+    expenseAmount = adjunctiveMethods.loadValue();
+
+    expense.setExpenseId(expenseId);
+    expense.setExpenseDate(expenseDate);
+    expense.setExpenseName(expenseName);
+    expense.setExpenseAmount(expenseAmount);
+
+    expenses.push_back(expense);
+
+    display();
+    //filesWithUsers.addNewUserToTheFileWithUsers(userId, userLogin, userPassword, userFirstName, userLastName);
+    return expense;
+}
+
+void FinanceManager::wyswietl(Expense expense)
 {
 
-    cout << income.downloadIncomeId() << endl;
-    cout << income.downloadIncomeDate() << endl;
-    cout << income.downloadIncomeName() << endl;
-    cout << setprecision(2) << fixed << income.downloadIncomeAmount() << endl;
+    cout << expense.downloadExpenseId() << endl;
+    cout << expense.downloadExpenseDate() << endl;
+    cout << expense.downloadExpenseName() << endl;
+    cout << setprecision(2) << fixed << expense.downloadExpenseAmount() << endl;
     system ("pause");
 }
 
-void FinanceManager::addNewExpense()
+void FinanceManager::display()
 {
 
-for (vector <Income> :: iterator itr = incomes.begin(); itr != incomes.end(); itr++)
+for (vector <Expense> :: iterator itr = expenses.begin(); itr != expenses.end(); itr++)
 {
            wyswietl(*itr);
 }
