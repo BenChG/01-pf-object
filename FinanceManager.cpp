@@ -27,6 +27,8 @@ Income FinanceManager::addNewIncome()
 
     incomes.push_back(income);
 
+      displayyy();
+
     filesForFinanceManager.addNewIncomeToTheFileWithIncomes(incomeId, incomeDate, incomeName, incomeAmount);
     return income;
 }
@@ -61,6 +63,26 @@ Expense FinanceManager::addNewExpense()
     display();
     filesForFinanceManager.addNewExpenseToTheFileWithExpenses(expenseId, expenseDate, expenseName, expenseAmount);
     return expense;
+}
+
+void FinanceManager::wyswietlll(Income income)
+{
+
+    cout << income.downloadIncomeId() << endl;
+    cout << income.downloadIncomeDate() << endl;
+    cout << income.downloadIncomeName() << endl;
+    cout << setprecision(2) << fixed << income.downloadIncomeAmount() << endl;
+    system ("pause");
+}
+
+void FinanceManager::displayyy()
+{
+
+for (vector <Income> :: iterator itr = incomes.begin(); itr != incomes.end(); itr++)
+{
+           wyswietlll(*itr);
+}
+
 }
 
 void FinanceManager::wyswietl(Expense expense)

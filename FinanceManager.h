@@ -31,7 +31,7 @@ class FinanceManager
          FinanceManager (string nameOfFileWithIncomes, string nameOfFileWithExpenses)
         : filesForFinanceManager(nameOfFileWithIncomes,nameOfFileWithExpenses)
     {
-        //users=filesWithUsers.loadUsersFromTheFile();
+        incomes=filesForFinanceManager.loadIncomesFromTheFile();
         //idOfLoggedInUser=0;
     };
 
@@ -39,6 +39,8 @@ class FinanceManager
     Expense addNewExpense();
     void display();
     void wyswietl(Expense expense);
+    void displayyy();
+    void wyswietlll(Income income);
 
 };
 

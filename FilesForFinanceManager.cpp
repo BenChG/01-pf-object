@@ -58,38 +58,35 @@ void FilesForFinanceManager::addNewExpenseToTheFileWithExpenses(int id, string d
     system("pause");
 }
 
-/*
-vector <User> FilesForFinanceManager::loadUsersFromTheFile ()
+
+vector <Income> FilesForFinanceManager::loadIncomesFromTheFile ()
 {
     CMarkup xml;
 
-    bool fileExists = xml.Load( "users.xml" );
+    bool fileExists = xml.Load( "incomes.xml" );
     xml.FindElem();
     xml.IntoElem();
-    while (xml.FindElem("User") )
+    while (xml.FindElem("Income") )
     {
         xml.IntoElem();
         xml.FindElem( "Id" );
-        int userId = atoi(MCD_2PCSZ(xml.GetData()));
-        xml.FindElem( "Login" );
-        string login = xml.GetData();
-        xml.FindElem( "Password" );
-        string password = xml.GetData();
-        xml.FindElem( "FirstName" );
-        string firstName = xml.GetData();
-        xml.FindElem( "LastName" );
-        string lastName = xml.GetData();
+        int incomeId = atoi(MCD_2PCSZ(xml.GetData()));
+        xml.FindElem( "Date" );
+        string date = xml.GetData();
+        xml.FindElem( "Name" );
+        string name = xml.GetData();
+        xml.FindElem( "Amount" );
+        float amount = atoi(MCD_2PCSZ(xml.GetData()));
         xml.OutOfElem();
 
-        user.setUserId(userId);
-        user.setUserLogin(login);
-        user.setUserPassword(password);
-        user.setUserFirstName(firstName);
-        user.setUserLastName(lastName);
+        income.setIncomeId(incomeId);
+        income.setIncomeDate(date);
+        income.setIncomeName(name);
+        income.setIncomeAmount(amount);
 
-        users.push_back(user);
+        incomes.push_back(income);
     }
 
-    return users;
+    return incomes;
 }
-*/
+
