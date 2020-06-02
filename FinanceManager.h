@@ -20,8 +20,6 @@ class FinanceManager
     AdjunctiveMethods adjunctiveMethods;
     //DateMethods dateMethods;
 
-    //const string NAME_OF_FILE_WITH_INCOMES;
-    //const string NAME_OF_FILE_WITH_EXPENSES;
     vector <Income> incomes;
     vector <Expense> expenses;
     //int idOfLoggedInUser;
@@ -32,7 +30,7 @@ class FinanceManager
         : filesForFinanceManager(nameOfFileWithIncomes,nameOfFileWithExpenses)
     {
         incomes=filesForFinanceManager.loadIncomesFromTheFile();
-        //idOfLoggedInUser=0;
+        expenses=filesForFinanceManager.loadExpensesFromTheFile();
     };
 
     Income addNewIncome();
