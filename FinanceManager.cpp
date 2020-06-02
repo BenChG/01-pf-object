@@ -27,7 +27,7 @@ Income FinanceManager::addNewIncome()
 
     incomes.push_back(income);
 
-    //filesWithUsers.addNewUserToTheFileWithUsers(userId, userLogin, userPassword, userFirstName, userLastName);
+    filesForFinanceManager.addNewIncomeToTheFileWithIncomes(incomeId, incomeDate, incomeName, incomeAmount);
     return income;
 }
 
