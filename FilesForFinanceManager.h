@@ -29,7 +29,7 @@ public:
 
   void addNewIncomeToTheFileWithIncomes(int id, string date, string name, float amount);
   void addNewExpenseToTheFileWithExpenses(int id, string date, string name, float amount);
-  //vector <User> loadUsersFromTheFile();
+  vector <Income> loadIncomesFromTheFile();
 };
 
 #endif
