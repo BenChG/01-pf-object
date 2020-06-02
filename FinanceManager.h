@@ -36,8 +36,9 @@ class FinanceManager
     };
 
     Income addNewIncome();
-    void addNewExpense();
-    void wyswietl(Income income);
+    Expense addNewExpense();
+    void display();
+    void wyswietl(Expense expense);
 
 };
 
