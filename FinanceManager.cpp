@@ -59,7 +59,7 @@ Expense FinanceManager::addNewExpense()
     expenses.push_back(expense);
 
     display();
-    //filesWithUsers.addNewUserToTheFileWithUsers(userId, userLogin, userPassword, userFirstName, userLastName);
+    filesForFinanceManager.addNewExpenseToTheFileWithExpenses(expenseId, expenseDate, expenseName, expenseAmount);
     return expense;
 }
 

@@ -29,6 +29,35 @@ void FilesForFinanceManager::addNewIncomeToTheFileWithIncomes(int id, string dat
     system("pause");
 }
 
+void FilesForFinanceManager::addNewExpenseToTheFileWithExpenses(int id, string date, string name, float amount)
+{
+    CMarkup xml;
+
+    bool fileExists = xml.Load(NAME_OF_FILE_WITH_EXPENSES);
+
+    if (!fileExists)
+    {
+        xml.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
+        xml.AddElem(NAME_OF_FILE_WITH_EXPENSES);
+    }
+
+    xml.FindElem();
+    xml.IntoElem();
+    xml.AddElem("Expense");
+    xml.IntoElem();
+    xml.AddElem("Id", id);
+    xml.AddElem("Date", date);
+    xml.AddElem("Name", name);
+    xml.AddElem("Amount", amount);
+
+    xml.Save(NAME_OF_FILE_WITH_EXPENSES);
+
+    cout << endl << "New expense added." << endl;
+    cout << "Size of vector expenses: " << id << endl << endl;
+
+    system("pause");
+}
+
 /*
 vector <User> FilesForFinanceManager::loadUsersFromTheFile ()
 {
