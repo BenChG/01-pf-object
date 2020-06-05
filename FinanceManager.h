@@ -8,7 +8,7 @@
 #include "Expense.h"
 #include "FilesForFinanceManager.h"
 #include "AdjunctiveMethods.h"
-//#include "DateMethods.h"
+#include "DateMethods.h"
 
 using namespace std;
 
@@ -18,7 +18,7 @@ class FinanceManager
     Expense expense;
     FilesForFinanceManager filesForFinanceManager;
     AdjunctiveMethods adjunctiveMethods;
-    //DateMethods dateMethods;
+    DateMethods dateMethods;
 
     vector <Income> incomes;
     vector <Expense> expenses;
