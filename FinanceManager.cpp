@@ -8,12 +8,19 @@ Income FinanceManager::addNewIncome()
     string incomeDate;
     string incomeName;
     float incomeAmount;
+    string isDateCorrect;
 
     int incomeId=incomes.size()+1;
 
     cout << "Give me income date: " << endl;
     incomeDate = adjunctiveMethods.loadLines();
+    isDateCorrect=dateMethods.checkIfDataIsCorrect(incomeDate);
 
+    if (isDateCorrect=="YES")
+{
+    cout << "Date is correct" << endl;
+    system ("pause");
+     /*
     cout << "Give me income name: " << endl;
     incomeName = adjunctiveMethods.loadLines();
 
@@ -30,7 +37,17 @@ Income FinanceManager::addNewIncome()
       displayyy();
 
     filesForFinanceManager.addNewIncomeToTheFileWithIncomes(incomeId, incomeDate, incomeName, incomeAmount);
-    return income;
+    */
+
+}
+
+else
+
+{
+   cout << "Date is wrong !!!" << endl;
+    system ("pause");
+}
+return income;
 }
 
 Expense FinanceManager::addNewExpense()
