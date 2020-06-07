@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <sstream>
 
 using namespace std;
 
@@ -14,7 +15,8 @@ class AdjunctiveMethods
     char loadSign();
     string loadLines();
     float loadValue();
-     char selectOptionFromMainMenu();
+    char selectOptionFromMainMenu();
+    string changeIntIntoString(int number);
 };
 
 #endif
