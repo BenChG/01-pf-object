@@ -1,5 +1,28 @@
 #include "DateMethods.h"
 
+
+string DateMethods::loadCurrentDate()
+{
+/*
+    SYSTEMTIME st;
+    GetLocalTime(&st);
+    int currentYear=st.wYear;
+    int currentMonth=st.wMonth;
+    int currentDay=st.wDay;
+
+
+   string year = adjunctiveMethods.changeIntIntoString(currentYear);
+    string month = adjunctiveMethods.changeIntIntoString(currentMonth);
+    string day = adjunctiveMethods.changeIntIntoString(currentDay);
+
+    string currentDate=year+month+day;
+*/
+
+string currentDate="Ooooo";
+  return currentDate;
+}
+
+
 string DateMethods::checkIfDayIsValid(int year, int month, int day)
 {
     int daysInTheMonth = 0;
@@ -13,6 +36,13 @@ string DateMethods::checkIfDayIsValid(int year, int month, int day)
     {
         if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
             daysInTheMonth = 29;
+
+        else
+        {
+            cout << "Biezacy miesiac ma 28 dni" << endl;
+        }
+
+
     }
     else
     {
@@ -62,65 +92,61 @@ string DateMethods::checkIfSignIsValid(char sign)
 }
 
 
-    string DateMethods::checkIfYearIsValid(int year, int currentYear)
+string DateMethods::checkIfYearIsValid(int year, int currentYear)
+{
+    if (1999<year && year<=currentYear)
     {
-        if (1999<year && year<=currentYear)
-        {
-            return "YES";
-        }
-
-        else
-        {
-            return "NO";
-        }
+        return "YES";
     }
 
-    string DateMethods::checkIfDataIsCorrect(string date)
+    else
     {
-        if (date.length()==10)
+        return "NO";
+    }
+}
+
+string DateMethods::checkIfDateIsCorrect(string date)
+{
+    /*
+    if (date.length()==10)
+    {
+        string isYearValid = "NO";
+        string isMonthValid = "NO";
+        string isDayValid = "NO";
+        string isSignValid = "NO";
+
+        int year = atoi(date.substr(0,4).c_str());
+        char sign = date[4];
+        int month = atoi(date.substr(5,2).c_str());
+        char sign2= date[7];
+        int day = atoi(date.substr(8,2).c_str());
+
+        isYearValid = checkIfYearIsValid(year, currentYear);
+        if (isYearValid=="YES")
         {
-            string isYearValid = "NO";
-            string isMonthValid = "NO";
-            string isDayValid = "NO";
-            string isSignValid = "NO";
+            isSignValid = checkIfSignIsValid(sign);
 
-            SYSTEMTIME st;
-            GetLocalTime(&st);
-            int currentYear = st.wYear;
-            int currentMonth = st.wMonth;
-            int currentDay = st.wDay;
-
-            int year = atoi(date.substr(0,4).c_str());
-            char sign = date[4];
-            int month = atoi(date.substr(5,2).c_str());
-            char sign2= date[7];
-            int day = atoi(date.substr(8,2).c_str());
-
-            isYearValid = checkIfYearIsValid(year, currentYear);
-            if (isYearValid=="YES")
+            if (isSignValid=="YES")
             {
-                isSignValid = checkIfSignIsValid(sign);
+                isMonthValid = checkIfMonthIsValid(year, currentYear, month, currentMonth);
 
-                if (isSignValid=="YES")
+                if (isMonthValid=="YES")
                 {
-                    isMonthValid = checkIfMonthIsValid(year, currentYear, month, currentMonth);
+                    isSignValid = checkIfSignIsValid(sign2);
 
-                    if (isMonthValid=="YES")
+                    if (isSignValid=="YES")
                     {
-                        isSignValid = checkIfSignIsValid(sign2);
+                        isDayValid = checkIfDayIsValid(year, month, day);
 
-                        if (isSignValid=="YES")
+                        if (isDayValid=="YES")
                         {
-                            isDayValid = checkIfDayIsValid(year, month, day);
-
-                            if (isDayValid=="YES")
-                            {
-                                return "YES";
-                            }
+                            return "YES";
                         }
                     }
                 }
             }
         }
-        return  "NO";
     }
+    return  "NO";
+    */
+}

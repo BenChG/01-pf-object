@@ -23,7 +23,7 @@ class FinanceManager
     vector <Income> incomes;
     vector <Expense> expenses;
     //int idOfLoggedInUser;
-
+    string isDateCorrect = "";
     public:
 
          FinanceManager (string nameOfFileWithIncomes, string nameOfFileWithExpenses)

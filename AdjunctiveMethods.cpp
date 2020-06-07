@@ -1,5 +1,15 @@
 #include "AdjunctiveMethods.h"
 
+string AdjunctiveMethods::changeIntIntoString(int number)
+{
+int i = number;
+ostringstream ss;
+ss << i;
+string str = ss.str();
+
+return str;
+}
+
 char AdjunctiveMethods::loadSign()
 {
     string input = "";
