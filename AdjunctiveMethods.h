@@ -17,6 +17,7 @@ class AdjunctiveMethods
     float loadValue();
     char selectOptionFromMainMenu();
     string changeIntIntoString(int number);
+    int changeStringIntoInt(string text);
 };
 
 #endif
