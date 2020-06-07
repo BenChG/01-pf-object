@@ -14,8 +14,6 @@ string DateMethods::loadCurrentDate()
    string year = adjunctiveMethods.changeIntIntoString(currentYear);
     string month = adjunctiveMethods.changeIntIntoString(currentMonth);
     string day = adjunctiveMethods.changeIntIntoString(currentDay);
-
-    string currentDate=year+month+day;
 */
 
 string currentDate="Ooooo";

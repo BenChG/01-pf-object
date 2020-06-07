@@ -1,5 +1,15 @@
 #include "AdjunctiveMethods.h"
 
+int AdjunctiveMethods::changeStringIntoInt(string text)
+{
+string str = text;
+int i;
+istringstream iss(str);
+iss >> i;
+
+return i;
+}
+
 string AdjunctiveMethods::changeIntIntoString(int number)
 {
 int i = number;
