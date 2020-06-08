@@ -1,5 +1,18 @@
 #include "AdjunctiveMethods.h"
 
+char AdjunctiveMethods::chooseDateVariant()
+{
+    system("cls");
+    cout << "Choose date variant:" << endl;
+    cout << "1. Current date." << endl;
+    cout << "2. Manual date." << endl;
+    cout << "--------------------" << endl;
+    cout << "Your choice: ";
+
+    choice = loadSign();
+    return choice;
+}
+
 int AdjunctiveMethods::changeStringIntoInt(string text)
 {
 string str = text;

@@ -23,12 +23,14 @@ class FinanceManager
     vector <Income> incomes;
     vector <Expense> expenses;
     //int idOfLoggedInUser;
-    string isDateCorrect = "";
+    string isDateCorrect;
+
     public:
 
          FinanceManager (string nameOfFileWithIncomes, string nameOfFileWithExpenses)
         : filesForFinanceManager(nameOfFileWithIncomes,nameOfFileWithExpenses)
     {
+        string isDateCorrect = "NO";
         incomes=filesForFinanceManager.loadIncomesFromTheFile();
         expenses=filesForFinanceManager.loadExpensesFromTheFile();
     };
