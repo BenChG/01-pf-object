@@ -18,6 +18,7 @@ class AdjunctiveMethods
     char selectOptionFromMainMenu();
     string changeIntIntoString(int number);
     int changeStringIntoInt(string text);
+    char chooseDateVariant();
 };
 
 #endif
