@@ -15,22 +15,17 @@ Income FinanceManager::addNewIncome()
 
     if (choice == '1')
     {
-        cout << "Selected option 1." << endl;
-        /*
         incomeDate=dateMethods.loadCurrentDate();
         isDateCorrect="YES";
         cout << incomeDate << endl;
         system ("pause");
-        */
+
     }
 
     else if (choice == '2')
     {
-     cout << "Selected option 2." << endl;
-        /*
         incomeDate = adjunctiveMethods.loadLines();
         isDateCorrect=dateMethods.checkIfDateIsCorrect(incomeDate);
-        */
     }
 
 else
@@ -42,7 +37,7 @@ else
     {
         cout << "Date is correct" << endl;
         system ("pause");
-        /*
+
         cout << "Give me income name: " << endl;
         incomeName = adjunctiveMethods.loadLines();
 
@@ -59,8 +54,6 @@ else
          displayyy();
 
         filesForFinanceManager.addNewIncomeToTheFileWithIncomes(incomeId, incomeDate, incomeName, incomeAmount);
-        */
-
     }
 
     else
@@ -87,22 +80,16 @@ Expense FinanceManager::addNewExpense()
 
     if (choice == '1')
     {
-        cout << "Selected option 1." << endl;
-        /*
         expenseDate=dateMethods.loadCurrentDate();
         isDateCorrect="YES";
         cout << expenseDate << endl;
         system ("pause");
-        */
     }
 
     else if (choice == '2')
     {
-     cout << "Selected option 2." << endl;
-        /*
         expenseDate = adjunctiveMethods.loadLines();
         isDateCorrect=dateMethods.checkIfDateIsCorrect(expenseDate);
-        */
     }
 
 else
@@ -115,7 +102,6 @@ else
         cout << "Date is correct" << endl;
         system ("pause");
 
-        /*
         cout << "Give me expense name: " << endl;
         expenseName = adjunctiveMethods.loadLines();
 
@@ -131,7 +117,6 @@ else
 
         display();
         filesForFinanceManager.addNewExpenseToTheFileWithExpenses(expenseId, expenseDate, expenseName, expenseAmount);
-        */
         return expense;
 
     }

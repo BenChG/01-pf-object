@@ -3,21 +3,40 @@
 
 string DateMethods::loadCurrentDate()
 {
-/*
     SYSTEMTIME st;
     GetLocalTime(&st);
     int currentYear=st.wYear;
     int currentMonth=st.wMonth;
     int currentDay=st.wDay;
+    string zeroToBeAddedBeforeMonth = "NO";
+    string zeroToBeAddedBeforeDay = "NO";
 
+    if (currentMonth<10)
+    {
+        zeroToBeAddedBeforeMonth = "YES";
+    }
 
-   string year = adjunctiveMethods.changeIntIntoString(currentYear);
+    if (currentDay<10)
+    {
+        zeroToBeAddedBeforeDay = "YES";
+    }
+
+    string year = adjunctiveMethods.changeIntIntoString(currentYear);
     string month = adjunctiveMethods.changeIntIntoString(currentMonth);
-    string day = adjunctiveMethods.changeIntIntoString(currentDay);
-*/
+    if (zeroToBeAddedBeforeMonth =="YES")
+    {
+        month = "0" + month;
+    }
 
-string currentDate="Ooooo";
-  return currentDate;
+    string day = adjunctiveMethods.changeIntIntoString(currentDay);
+    if (zeroToBeAddedBeforeDay =="YES")
+    {
+        day = "0" + day;
+    }
+
+
+    string currentDate = year + "-" + month + "-" + day;
+    return currentDate;
 }
 
 
@@ -105,7 +124,11 @@ string DateMethods::checkIfYearIsValid(int year, int currentYear)
 
 string DateMethods::checkIfDateIsCorrect(string date)
 {
-    /*
+    SYSTEMTIME st;
+    GetLocalTime(&st);
+    int currentYear=st.wYear;
+    int currentMonth=st.wMonth;
+    int currentDay=st.wDay;
     if (date.length()==10)
     {
         string isYearValid = "NO";
@@ -146,5 +169,4 @@ string DateMethods::checkIfDateIsCorrect(string date)
         }
     }
     return  "NO";
-    */
 }
