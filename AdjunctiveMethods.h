@@ -19,6 +19,7 @@ class AdjunctiveMethods
     string changeIntIntoString(int number);
     int changeStringIntoInt(string text);
     char chooseDateVariant();
+    string verifyIfAmountIsCorrect();
 };
 
 #endif

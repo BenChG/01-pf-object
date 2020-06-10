@@ -7,6 +7,7 @@ Income FinanceManager::addNewIncome()
 
     string incomeDate;
     string incomeName;
+    string isAmountCorrect;
     float incomeAmount;
 
     int incomeId=incomes.size()+1;
@@ -38,12 +39,24 @@ else
         cout << "Date is correct" << endl;
         system ("pause");
 
-        cout << "Give me income name: " << endl;
-        incomeName = adjunctiveMethods.loadLines();
+        //cout << "Give me income name: " << endl;
+        //incomeName = adjunctiveMethods.loadLines();
 
         cout << "Give me income amount: " << endl;
-        incomeAmount = adjunctiveMethods.loadValue();
+        isAmountCorrect = adjunctiveMethods.verifyIfAmountIsCorrect();
+        if (isAmountCorrect == "NO")
+        {
+        cout << "Amount provided is not a number, try again later" << endl;
+        system ("pause");
+        }
 
+        else
+        {
+        //incomeAmount = adjunctiveMethodschangeStringIntoFloat (isAmountCorrect);
+        cout << "ooooo"<< endl;
+         system ("pause");
+
+/*
         income.setIncomeId(incomeId);
         income.setIncomeDate(incomeDate);
         income.setIncomeName(incomeName);
@@ -54,8 +67,9 @@ else
          displayyy();
 
         filesForFinanceManager.addNewIncomeToTheFileWithIncomes(incomeId, incomeDate, incomeName, incomeAmount);
-    }
-
+       */
+        }
+}
     else
 
     {
