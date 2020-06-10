@@ -1,5 +1,39 @@
 #include "AdjunctiveMethods.h"
 
+string AdjunctiveMethods::verifyIfAmountIsCorrect()
+{
+    string isDotFound = "NO";
+    string dataToBeVeryfied = loadLines();
+    int length = dataToBeVeryfied.length();
+
+    for (int i=0; i<length; i++)
+    {
+        cout << dataToBeVeryfied [i] << endl;
+
+        if ((dataToBeVeryfied[i] == char(44)) && (isDotFound == "NO"))
+        {
+            dataToBeVeryfied[i] = char(46);
+            isDotFound = "YES";
+        }
+
+        else
+        {
+          if ((dataToBeVeryfied[i] == char(46)) && (isDotFound == "NO"))
+            {
+             isDotFound = "YES";
+            }
+
+        else if (!isdigit(dataToBeVeryfied[i]))
+            {
+                return "NO";
+            }
+        }
+
+
+    }
+         return dataToBeVeryfied;
+}
+
 char AdjunctiveMethods::chooseDateVariant()
 {
     system("cls");
@@ -15,22 +49,22 @@ char AdjunctiveMethods::chooseDateVariant()
 
 int AdjunctiveMethods::changeStringIntoInt(string text)
 {
-string str = text;
-int i;
-istringstream iss(str);
-iss >> i;
+    string str = text;
+    int i;
+    istringstream iss(str);
+    iss >> i;
 
-return i;
+    return i;
 }
 
 string AdjunctiveMethods::changeIntIntoString(int number)
 {
-int i = number;
-ostringstream ss;
-ss << i;
-string str = ss.str();
+    int i = number;
+    ostringstream ss;
+    ss << i;
+    string str = ss.str();
 
-return str;
+    return str;
 }
 
 char AdjunctiveMethods::loadSign()
