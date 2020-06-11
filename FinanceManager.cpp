@@ -39,8 +39,8 @@ else
         cout << "Date is correct" << endl;
         system ("pause");
 
-        //cout << "Give me income name: " << endl;
-        //incomeName = adjunctiveMethods.loadLines();
+        cout << "Give me income name: " << endl;
+        incomeName = adjunctiveMethods.loadLines();
 
         cout << "Give me income amount: " << endl;
         isAmountCorrect = adjunctiveMethods.verifyIfAmountIsCorrect();
@@ -52,11 +52,8 @@ else
 
         else
         {
-        //incomeAmount = adjunctiveMethodschangeStringIntoFloat (isAmountCorrect);
-        cout << "ooooo"<< endl;
-         system ("pause");
+        incomeAmount = adjunctiveMethods.changeStringIntoFloat(isAmountCorrect);
 
-/*
         income.setIncomeId(incomeId);
         income.setIncomeDate(incomeDate);
         income.setIncomeName(incomeName);
@@ -67,7 +64,6 @@ else
          displayyy();
 
         filesForFinanceManager.addNewIncomeToTheFileWithIncomes(incomeId, incomeDate, incomeName, incomeAmount);
-       */
         }
 }
     else
@@ -86,7 +82,9 @@ Expense FinanceManager::addNewExpense()
 
     string expenseDate;
     string expenseName;
+    string isAmountCorrect;
     float expenseAmount;
+
 
     int expenseId=expenses.size()+1;
 
@@ -113,6 +111,7 @@ else
 
     if (isDateCorrect=="YES")
     {
+
         cout << "Date is correct" << endl;
         system ("pause");
 
@@ -120,7 +119,16 @@ else
         expenseName = adjunctiveMethods.loadLines();
 
         cout << "Give me expense amount: " << endl;
-        expenseAmount = adjunctiveMethods.loadValue();
+        isAmountCorrect = adjunctiveMethods.verifyIfAmountIsCorrect();
+        if (isAmountCorrect == "NO")
+        {
+        cout << "Amount provided is not a number, try again later" << endl;
+        system ("pause");
+        }
+
+        else
+        {
+        expenseAmount = adjunctiveMethods.changeStringIntoFloat(isAmountCorrect);
 
         expense.setExpenseId(expenseId);
         expense.setExpenseDate(expenseDate);
@@ -132,6 +140,7 @@ else
         display();
         filesForFinanceManager.addNewExpenseToTheFileWithExpenses(expenseId, expenseDate, expenseName, expenseAmount);
         return expense;
+        }
 
     }
     else

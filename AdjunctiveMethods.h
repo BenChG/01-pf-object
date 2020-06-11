@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <sstream>
+#include <string>
 
 using namespace std;
 
@@ -20,6 +21,7 @@ class AdjunctiveMethods
     int changeStringIntoInt(string text);
     char chooseDateVariant();
     string verifyIfAmountIsCorrect();
+    float changeStringIntoFloat (string str);
 };
 
 #endif
