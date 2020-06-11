@@ -1,5 +1,18 @@
 #include "AdjunctiveMethods.h"
 
+float AdjunctiveMethods::changeStringIntoFloat(string str)
+{
+
+ stringstream ss;
+
+float fl;
+
+ss << str;
+ss >> fl;
+
+return fl;
+}
+
 string AdjunctiveMethods::verifyIfAmountIsCorrect()
 {
     string isDotFound = "NO";
