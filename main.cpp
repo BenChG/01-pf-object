@@ -64,7 +64,7 @@ int main()
             case '6':
                 cout << "Option 6 selected" << endl;
                 system ("pause");
-                //personalFinances.changeThePassword();
+                personalFinances.changeThePassword();
                 break;
             case '7':
                 idOfLoggedInUser=personalFinances.logOffUser();

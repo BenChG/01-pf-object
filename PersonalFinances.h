@@ -39,6 +39,7 @@ public:
     int logOffUser();
     void addNewIncome();
     void addNewExpense();
+    void changeThePassword();
 };
 
 #endif

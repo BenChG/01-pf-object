@@ -30,7 +30,7 @@ class UserManager
     int logInUser();
     int findUser(User user, string login);
     int logOffUser();
-
+    void changeThePassword();
 };
 
 #endif

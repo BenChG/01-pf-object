@@ -71,9 +71,9 @@ int UserManager::findUser(User user, string login)
 
 int UserManager::logInUser()
 {
-    idOfLoggedInUser=1;
-    return idOfLoggedInUser;
-    /*
+    //idOfLoggedInUser=1;
+    //return idOfLoggedInUser;
+
     if (!users.empty())
     {
         string login;
@@ -101,7 +101,7 @@ int UserManager::logInUser()
         system ("pause");
         return idOfLoggedInUser;
     }
-    */
+
 }
 
 int UserManager::logOffUser()
@@ -109,3 +109,21 @@ int UserManager::logOffUser()
  idOfLoggedInUser=0;
  return idOfLoggedInUser;
 }
+
+void UserManager::changeThePassword()
+{
+    string newPassword;
+    cout << "Please provide the new password: " << endl;
+    cin >> newPassword;
+
+        cout << "idOfLoggedInUser: " << idOfLoggedInUser << endl;
+        cout << "newPassword" << newPassword << endl;
+        system ("pause");
+
+
+
+    filesWithUsers.saveNewPasswordInTheFileWithUsers(newPassword, idOfLoggedInUser);
+
+    users=filesWithUsers.loadUsersFromTheFile();
+}
+
