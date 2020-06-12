@@ -1,6 +1,8 @@
 #ifndef USER_H
 #define USER_H
+
 #include <iostream>
+
 using namespace std;
 
 class User
@@ -12,6 +14,16 @@ class User
     string userPassword;
 
 public:
+
+    User (int userId=123, string userLogin="ABC", string userPassword="qwerty", string userFirstName="A", string userLastName="BC")
+    {
+        this->userId = userId;
+        this->userLogin = userLogin;
+        this->userPassword = userPassword;
+        this->userFirstName = userFirstName;
+        this->userLastName = userLastName;
+    }
+
     void setUserId (int newUserId);
     void setUserFirstName (string newUserFirstName);
     void setUserLastName (string newUserLastName);
@@ -23,15 +35,6 @@ public:
     string downloadUserLastName();
     string downloadUserLogin();
     string downloadUserPassword();
-
-        User (int userId=1234, string userLogin="Everson", string userPassword="1234", string userFirstName="Ben", string userLastName="C")
-    {
-        this->userId = userId;
-        this->userLogin = userLogin;
-        this->userPassword = userPassword;
-        this->userFirstName = userFirstName;
-        this->userLastName = userLastName;
-    }
-
 };
+
 #endif

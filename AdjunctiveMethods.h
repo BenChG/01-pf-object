@@ -11,16 +11,18 @@ using namespace std;
 class AdjunctiveMethods
 {
     char choice;
-    public:
-    char selectOptionFromLoggingMenu();
+
+public:
+
     char loadSign();
-    string loadLines();
-    float loadValue();
+    char selectOptionFromLoggingMenu();
     char selectOptionFromMainMenu();
-    string changeIntIntoString(int number);
-    int changeStringIntoInt(string text);
     char chooseDateVariant();
+    string loadLines();
+    string changeIntIntoString(int number);
     string verifyIfAmountIsCorrect();
+    int changeStringIntoInt(string text);
+    float loadValue();
     float changeStringIntoFloat (string str);
 };
 

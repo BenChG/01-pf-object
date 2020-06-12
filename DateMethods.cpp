@@ -1,76 +1,11 @@
 #include "DateMethods.h"
 
-
-string DateMethods::loadCurrentDate()
+string DateMethods::checkIfYearIsValid(int year, int currentYear)
 {
-    SYSTEMTIME st;
-    GetLocalTime(&st);
-    int currentYear=st.wYear;
-    int currentMonth=st.wMonth;
-    int currentDay=st.wDay;
-    string zeroToBeAddedBeforeMonth = "NO";
-    string zeroToBeAddedBeforeDay = "NO";
-
-    if (currentMonth<10)
-    {
-        zeroToBeAddedBeforeMonth = "YES";
-    }
-
-    if (currentDay<10)
-    {
-        zeroToBeAddedBeforeDay = "YES";
-    }
-
-    string year = adjunctiveMethods.changeIntIntoString(currentYear);
-    string month = adjunctiveMethods.changeIntIntoString(currentMonth);
-    if (zeroToBeAddedBeforeMonth =="YES")
-    {
-        month = "0" + month;
-    }
-
-    string day = adjunctiveMethods.changeIntIntoString(currentDay);
-    if (zeroToBeAddedBeforeDay =="YES")
-    {
-        day = "0" + day;
-    }
-
-
-    string currentDate = year + "-" + month + "-" + day;
-    return currentDate;
-}
-
-
-string DateMethods::checkIfDayIsValid(int year, int month, int day)
-{
-    int daysInTheMonth = 0;
-
-    if (month==4||month==6||month==9||month==11)
-    {
-        daysInTheMonth = 30;
-    }
-
-    else if (month==2)
-    {
-        if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
-            daysInTheMonth = 29;
-
-        else
-        {
-            cout << "Biezacy miesiac ma 28 dni" << endl;
-        }
-
-
-    }
-    else
-    {
-        daysInTheMonth = 31;
-    }
-
-    if (day<=daysInTheMonth)
+    if (1999<year && year<=currentYear)
     {
         return "YES";
     }
-
     else
     {
         return "NO";
@@ -90,10 +25,44 @@ string DateMethods::checkIfMonthIsValid(int year, int currentYear, int month, in
             return "YES";
         }
     }
-
     else
     {
         return "NO" ;
+    }
+}
+
+string DateMethods::checkIfDayIsValid(int year, int month, int day)
+{
+    int daysInTheMonth = 0;
+
+    if (month==4||month==6||month==9||month==11)
+    {
+        daysInTheMonth = 30;
+    }
+
+    else if (month==2)
+    {
+        if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
+            daysInTheMonth = 29;
+        else
+        {
+            cout << "Biezacy miesiac ma 28 dni" << endl;
+        }
+    }
+
+    else
+    {
+        daysInTheMonth = 31;
+    }
+
+    if (day<=daysInTheMonth)
+    {
+        return "YES";
+    }
+
+    else
+    {
+        return "NO";
     }
 }
 
@@ -108,27 +77,15 @@ string DateMethods::checkIfSignIsValid(char sign)
     }
 }
 
-
-string DateMethods::checkIfYearIsValid(int year, int currentYear)
-{
-    if (1999<year && year<=currentYear)
-    {
-        return "YES";
-    }
-
-    else
-    {
-        return "NO";
-    }
-}
-
 string DateMethods::checkIfDateIsCorrect(string date)
 {
     SYSTEMTIME st;
     GetLocalTime(&st);
+
     int currentYear=st.wYear;
     int currentMonth=st.wMonth;
     int currentDay=st.wDay;
+
     if (date.length()==10)
     {
         string isYearValid = "NO";
@@ -136,11 +93,11 @@ string DateMethods::checkIfDateIsCorrect(string date)
         string isDayValid = "NO";
         string isSignValid = "NO";
 
-        int year = atoi(date.substr(0,4).c_str());
+        int year = adjunctiveMethods.changeStringIntoInt(date.substr(0,4));
         char sign = date[4];
-        int month = atoi(date.substr(5,2).c_str());
+        int month = adjunctiveMethods.changeStringIntoInt(date.substr(5,2));
         char sign2= date[7];
-        int day = atoi(date.substr(8,2).c_str());
+        int day = adjunctiveMethods.changeStringIntoInt(date.substr(8,2));
 
         isYearValid = checkIfYearIsValid(year, currentYear);
         if (isYearValid=="YES")
@@ -169,4 +126,44 @@ string DateMethods::checkIfDateIsCorrect(string date)
         }
     }
     return  "NO";
+}
+
+string DateMethods::loadCurrentDate()
+{
+    SYSTEMTIME st;
+    GetLocalTime(&st);
+
+    int currentYear=st.wYear;
+    int currentMonth=st.wMonth;
+    int currentDay=st.wDay;
+    string zeroToBeAddedBeforeMonth = "NO";
+    string zeroToBeAddedBeforeDay = "NO";
+
+    if (currentMonth<10)
+    {
+        zeroToBeAddedBeforeMonth = "YES";
+    }
+
+    if (currentDay<10)
+    {
+        zeroToBeAddedBeforeDay = "YES";
+    }
+
+    string year = adjunctiveMethods.changeIntIntoString(currentYear);
+    string month = adjunctiveMethods.changeIntIntoString(currentMonth);
+
+    if (zeroToBeAddedBeforeMonth =="YES")
+    {
+        month = "0" + month;
+    }
+
+    string day = adjunctiveMethods.changeIntIntoString(currentDay);
+
+    if (zeroToBeAddedBeforeDay =="YES")
+    {
+        day = "0" + day;
+    }
+
+    string currentDate = year + "-" + month + "-" + day;
+    return currentDate;
 }

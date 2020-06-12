@@ -58,32 +58,31 @@ void FilesForFinanceManager::addNewExpenseToTheFileWithExpenses(int id, string d
     system("pause");
 }
 
-
 vector <Income> FilesForFinanceManager::loadIncomesFromTheFile ()
 {
     CMarkup xml;
-
     bool fileExists = xml.Load( "incomes.xml" );
+
     xml.FindElem();
     xml.IntoElem();
+
     while (xml.FindElem("Income") )
     {
         xml.IntoElem();
         xml.FindElem( "Id" );
-        int incomeId = atoi(MCD_2PCSZ(xml.GetData()));
+        int incomeId = adjunctiveMethods.changeStringIntoInt(xml.GetData());
         xml.FindElem( "Date" );
         string date = xml.GetData();
         xml.FindElem( "Name" );
         string name = xml.GetData();
         xml.FindElem( "Amount" );
-        float amount = atoi(MCD_2PCSZ(xml.GetData()));
+        float amount = adjunctiveMethods.changeStringIntoFloat(xml.GetData());
         xml.OutOfElem();
 
         income.setIncomeId(incomeId);
         income.setIncomeDate(date);
         income.setIncomeName(name);
         income.setIncomeAmount(amount);
-
         incomes.push_back(income);
     }
 
@@ -93,28 +92,28 @@ vector <Income> FilesForFinanceManager::loadIncomesFromTheFile ()
 vector <Expense> FilesForFinanceManager::loadExpensesFromTheFile ()
 {
     CMarkup xml;
+    bool fileExists = xml.Load("expenses.xml" );
 
-    bool fileExists = xml.Load( "expenses.xml" );
     xml.FindElem();
     xml.IntoElem();
+
     while (xml.FindElem("Expense") )
     {
         xml.IntoElem();
         xml.FindElem( "Id" );
-        int expenseId = atoi(MCD_2PCSZ(xml.GetData()));
+        int expenseId = adjunctiveMethods.changeStringIntoInt(xml.GetData());
         xml.FindElem( "Date" );
         string date = xml.GetData();
         xml.FindElem( "Name" );
         string name = xml.GetData();
         xml.FindElem( "Amount" );
-        float amount = atoi(MCD_2PCSZ(xml.GetData()));
+        float amount = adjunctiveMethods.changeStringIntoFloat(xml.GetData());
         xml.OutOfElem();
 
         expense.setExpenseId(expenseId);
         expense.setExpenseDate(date);
         expense.setExpenseName(name);
         expense.setExpenseAmount(amount);
-
         expenses.push_back(expense);
     }
 

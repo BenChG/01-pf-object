@@ -29,7 +29,7 @@ Income FinanceManager::addNewIncome()
         isDateCorrect=dateMethods.checkIfDateIsCorrect(incomeDate);
     }
 
-else
+    else
     {
         cout << "Wrong choice, try again later" << endl;
     }
@@ -44,30 +44,28 @@ else
 
         cout << "Give me income amount: " << endl;
         isAmountCorrect = adjunctiveMethods.verifyIfAmountIsCorrect();
+
         if (isAmountCorrect == "NO")
         {
-        cout << "Amount provided is not a number, try again later" << endl;
-        system ("pause");
+            cout << "Amount provided is not a number, try again later" << endl;
+            system ("pause");
         }
 
         else
         {
-        incomeAmount = adjunctiveMethods.changeStringIntoFloat(isAmountCorrect);
+            incomeAmount = adjunctiveMethods.changeStringIntoFloat(isAmountCorrect);
 
-        income.setIncomeId(incomeId);
-        income.setIncomeDate(incomeDate);
-        income.setIncomeName(incomeName);
-        income.setIncomeAmount(incomeAmount);
+            income.setIncomeId(incomeId);
+            income.setIncomeDate(incomeDate);
+            income.setIncomeName(incomeName);
+            income.setIncomeAmount(incomeAmount);
+            incomes.push_back(income);
 
-        incomes.push_back(income);
-
-         displayyy();
-
-        filesForFinanceManager.addNewIncomeToTheFileWithIncomes(incomeId, incomeDate, incomeName, incomeAmount);
+            filesForFinanceManager.addNewIncomeToTheFileWithIncomes(incomeId, incomeDate, incomeName, incomeAmount);
         }
-}
-    else
+    }
 
+    else
     {
         cout << "Date is wrong !!!" << endl;
         system ("pause");
@@ -104,7 +102,7 @@ Expense FinanceManager::addNewExpense()
         isDateCorrect=dateMethods.checkIfDateIsCorrect(expenseDate);
     }
 
-else
+    else
     {
         cout << "Wrong choice, try again later" << endl;
     }
@@ -120,28 +118,27 @@ else
 
         cout << "Give me expense amount: " << endl;
         isAmountCorrect = adjunctiveMethods.verifyIfAmountIsCorrect();
+
         if (isAmountCorrect == "NO")
         {
-        cout << "Amount provided is not a number, try again later" << endl;
-        system ("pause");
+            cout << "Amount provided is not a number, try again later" << endl;
+            system ("pause");
         }
 
         else
         {
-        expenseAmount = adjunctiveMethods.changeStringIntoFloat(isAmountCorrect);
+            expenseAmount = adjunctiveMethods.changeStringIntoFloat(isAmountCorrect);
 
-        expense.setExpenseId(expenseId);
-        expense.setExpenseDate(expenseDate);
-        expense.setExpenseName(expenseName);
-        expense.setExpenseAmount(expenseAmount);
+            expense.setExpenseId(expenseId);
+            expense.setExpenseDate(expenseDate);
+            expense.setExpenseName(expenseName);
+            expense.setExpenseAmount(expenseAmount);
+            expenses.push_back(expense);
 
-        expenses.push_back(expense);
+            filesForFinanceManager.addNewExpenseToTheFileWithExpenses(expenseId, expenseDate, expenseName, expenseAmount);
 
-        display();
-        filesForFinanceManager.addNewExpenseToTheFileWithExpenses(expenseId, expenseDate, expenseName, expenseAmount);
-        return expense;
+            return expense;
         }
-
     }
     else
 
@@ -150,44 +147,3 @@ else
         system ("pause");
     }
 }
-
-void FinanceManager::wyswietlll(Income income)
-{
-
-    cout << income.downloadIncomeId() << endl;
-    cout << income.downloadIncomeDate() << endl;
-    cout << income.downloadIncomeName() << endl;
-    cout << setprecision(2) << fixed << income.downloadIncomeAmount() << endl;
-    system ("pause");
-}
-
-void FinanceManager::displayyy()
-{
-
-    for (vector <Income> :: iterator itr = incomes.begin(); itr != incomes.end(); itr++)
-    {
-        wyswietlll(*itr);
-    }
-
-}
-
-void FinanceManager::wyswietl(Expense expense)
-{
-
-    cout << expense.downloadExpenseId() << endl;
-    cout << expense.downloadExpenseDate() << endl;
-    cout << expense.downloadExpenseName() << endl;
-    cout << setprecision(2) << fixed << expense.downloadExpenseAmount() << endl;
-    system ("pause");
-}
-
-void FinanceManager::display()
-{
-
-    for (vector <Expense> :: iterator itr = expenses.begin(); itr != expenses.end(); itr++)
-    {
-        wyswietl(*itr);
-    }
-
-}
-

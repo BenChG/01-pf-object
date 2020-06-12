@@ -3,7 +3,6 @@
 void FilesWithUsers::addNewUserToTheFileWithUsers(int id, string login, string password, string firstName, string lastName)
 {
     CMarkup xml;
-
     bool fileExists = xml.Load(NAME_OF_FILE_WITH_USERS);
 
     if (!fileExists)
@@ -30,20 +29,45 @@ void FilesWithUsers::addNewUserToTheFileWithUsers(int id, string login, string p
     system("pause");
 }
 
+void FilesWithUsers::saveNewPasswordInTheFileWithUsers (string newPassword, int idOfLoggedInUser)
+{
+    CMarkup xml;
+    bool fileExists = xml.Load( "users.xml" );
+
+    xml.FindElem();
+    xml.IntoElem();
+
+    while (xml.FindElem("User") )
+    {
+        xml.IntoElem();
+        xml.FindElem( "Id" );
+        int userId = adjunctiveMethods.changeStringIntoInt(xml.GetData());
+        cout << "userId" << userId << endl;
+        if (userId == idOfLoggedInUser)
+        {
+            xml.FindElem( "Password" );
+            xml.RemoveElem();
+            xml.AddElem("Password", newPassword);
+            xml.Save("users.xml");
+        }
+    }
+}
+
 vector <User> FilesWithUsers::loadUsersFromTheFile ()
 {
     users.clear();
 
     CMarkup xml;
-
     bool fileExists = xml.Load( "users.xml" );
+
     xml.FindElem();
     xml.IntoElem();
+
     while (xml.FindElem("User") )
     {
         xml.IntoElem();
         xml.FindElem( "Id" );
-        int userId = atoi(MCD_2PCSZ(xml.GetData()));
+        int userId = adjunctiveMethods.changeStringIntoInt(xml.GetData());
         xml.FindElem( "Login" );
         string login = xml.GetData();
         xml.FindElem( "Password" );
@@ -59,32 +83,7 @@ vector <User> FilesWithUsers::loadUsersFromTheFile ()
         user.setUserPassword(password);
         user.setUserFirstName(firstName);
         user.setUserLastName(lastName);
-
         users.push_back(user);
     }
-
     return users;
-}
-
-void FilesWithUsers::saveNewPasswordInTheFileWithUsers (string newPassword, int idOfLoggedInUser)
-{
-    CMarkup xml;
-
-    bool fileExists = xml.Load( "users.xml" );
-    xml.FindElem();
-    xml.IntoElem();
-    while (xml.FindElem("User") )
-    {
-        xml.IntoElem();
-        xml.FindElem( "Id" );
-        int userId = atoi(MCD_2PCSZ(xml.GetData()));
-        cout << "userId" << userId << endl;
-        if (userId == idOfLoggedInUser)
-        {
-        xml.FindElem( "Password" );
-        xml.RemoveElem();
-        xml.AddElem("Password", newPassword);
-         xml.Save("users.xml");
-        }
-    }
 }

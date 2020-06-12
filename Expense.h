@@ -1,6 +1,8 @@
 #ifndef EXPENSE_H
 #define EXPENSE_H
+
 #include <iostream>
+
 using namespace std;
 
 class Expense
@@ -11,6 +13,15 @@ class Expense
     float expenseAmount;
 
 public:
+
+    Expense (int expenseId=123, string expenseDate="2000-01-01", string expenseName="Expense", float expenseAmount=123.45)
+    {
+        this->expenseId = expenseId;
+        this->expenseDate = expenseDate;
+        this->expenseName = expenseName;
+        this->expenseAmount = expenseAmount;
+    }
+
     void setExpenseId(int newExpenseId);
     void setExpenseDate (string newExpenseDate);
     void setExpenseName (string newExpenseName);
@@ -20,13 +31,6 @@ public:
     string downloadExpenseDate();
     string downloadExpenseName();
     float downloadExpenseAmount();
-
-        Expense (int expenseId=123, string expenseDate="yyyy-mm-dd", string expenseName="ABC", float expenseAmount=123.50)
-    {
-        this->expenseId = expenseId;
-        this->expenseDate = expenseDate;
-        this->expenseName = expenseName;
-        this->expenseAmount = expenseAmount;
-    }
 };
+
 #endif

@@ -28,7 +28,6 @@ User UserManager::userRegistration()
     user.setUserLogin(userLogin);
     user.setUserFirstName(userFirstName);
     user.setUserLastName(userLastName);
-
     users.push_back(user);
 
     filesWithUsers.addNewUserToTheFileWithUsers(userId, userLogin, userPassword, userFirstName, userLastName);
@@ -83,6 +82,7 @@ int UserManager::logInUser()
         for (vector <User> :: iterator itr = users.begin(); itr != users.end(); itr++)
         {
             idOfLoggedInUser=findUser(*itr, login);
+
             if (idOfLoggedInUser!=0)
             {
                 return idOfLoggedInUser;
@@ -95,19 +95,19 @@ int UserManager::logInUser()
             system ("pause");
         }
     }
+
     else
     {
         cout << "File with users is empty, select 1 to add first user." << endl;
         system ("pause");
         return idOfLoggedInUser;
     }
-
 }
 
 int UserManager::logOffUser()
 {
- idOfLoggedInUser=0;
- return idOfLoggedInUser;
+    idOfLoggedInUser=0;
+    return idOfLoggedInUser;
 }
 
 void UserManager::changeThePassword()
@@ -116,14 +116,11 @@ void UserManager::changeThePassword()
     cout << "Please provide the new password: " << endl;
     cin >> newPassword;
 
-        cout << "idOfLoggedInUser: " << idOfLoggedInUser << endl;
-        cout << "newPassword" << newPassword << endl;
-        system ("pause");
-
-
+    cout << "idOfLoggedInUser: " << idOfLoggedInUser << endl;
+    cout << "newPassword" << newPassword << endl;
+    system ("pause");
 
     filesWithUsers.saveNewPasswordInTheFileWithUsers(newPassword, idOfLoggedInUser);
 
     users=filesWithUsers.loadUsersFromTheFile();
 }
-

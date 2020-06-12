@@ -1,9 +1,6 @@
 #ifndef FINANCEMANAGER_H
 #define FINANCEMANAGER_H
 
-#include <iostream>
-#include <iomanip>
-#include <vector>
 #include "Income.h"
 #include "Expense.h"
 #include "FilesForFinanceManager.h"
@@ -22,12 +19,11 @@ class FinanceManager
 
     vector <Income> incomes;
     vector <Expense> expenses;
-    //int idOfLoggedInUser;
     string isDateCorrect;
 
-    public:
+public:
 
-         FinanceManager (string nameOfFileWithIncomes, string nameOfFileWithExpenses)
+    FinanceManager (string nameOfFileWithIncomes, string nameOfFileWithExpenses)
         : filesForFinanceManager(nameOfFileWithIncomes,nameOfFileWithExpenses)
     {
         string isDateCorrect = "NO";
@@ -37,11 +33,6 @@ class FinanceManager
 
     Income addNewIncome();
     Expense addNewExpense();
-    void display();
-    void wyswietl(Expense expense);
-    void displayyy();
-    void wyswietlll(Income income);
-
 };
 
 #endif

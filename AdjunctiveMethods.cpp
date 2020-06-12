@@ -1,85 +1,5 @@
 #include "AdjunctiveMethods.h"
 
-float AdjunctiveMethods::changeStringIntoFloat(string str)
-{
-
- stringstream ss;
-
-float fl;
-
-ss << str;
-ss >> fl;
-
-return fl;
-}
-
-string AdjunctiveMethods::verifyIfAmountIsCorrect()
-{
-    string isDotFound = "NO";
-    string dataToBeVeryfied = loadLines();
-    int length = dataToBeVeryfied.length();
-
-    for (int i=0; i<length; i++)
-    {
-        cout << dataToBeVeryfied [i] << endl;
-
-        if ((dataToBeVeryfied[i] == char(44)) && (isDotFound == "NO"))
-        {
-            dataToBeVeryfied[i] = char(46);
-            isDotFound = "YES";
-        }
-
-        else
-        {
-          if ((dataToBeVeryfied[i] == char(46)) && (isDotFound == "NO"))
-            {
-             isDotFound = "YES";
-            }
-
-        else if (!isdigit(dataToBeVeryfied[i]))
-            {
-                return "NO";
-            }
-        }
-
-
-    }
-         return dataToBeVeryfied;
-}
-
-char AdjunctiveMethods::chooseDateVariant()
-{
-    system("cls");
-    cout << "Choose date variant:" << endl;
-    cout << "1. Current date." << endl;
-    cout << "2. Manual date." << endl;
-    cout << "--------------------" << endl;
-    cout << "Your choice: ";
-
-    choice = loadSign();
-    return choice;
-}
-
-int AdjunctiveMethods::changeStringIntoInt(string text)
-{
-    string str = text;
-    int i;
-    istringstream iss(str);
-    iss >> i;
-
-    return i;
-}
-
-string AdjunctiveMethods::changeIntIntoString(int number)
-{
-    int i = number;
-    ostringstream ss;
-    ss << i;
-    string str = ss.str();
-
-    return str;
-}
-
 char AdjunctiveMethods::loadSign()
 {
     string input = "";
@@ -132,11 +52,75 @@ char AdjunctiveMethods::selectOptionFromMainMenu()
     return choice;
 }
 
+char AdjunctiveMethods::chooseDateVariant()
+{
+    system("cls");
+    cout << "Choose date variant:" << endl;
+    cout << "1. Current date." << endl;
+    cout << "2. Manual date." << endl;
+    cout << "--------------------" << endl;
+    cout << "Your choice: ";
+
+    choice = loadSign();
+    return choice;
+}
+
 string AdjunctiveMethods::loadLines()
 {
     string input = "";
     getline(cin, input);
     return input;
+}
+
+string AdjunctiveMethods::changeIntIntoString(int number)
+{
+    int i = number;
+    ostringstream ss;
+    ss << i;
+    string str = ss.str();
+
+    return str;
+}
+
+string AdjunctiveMethods::verifyIfAmountIsCorrect()
+{
+    string isDotFound = "NO";
+    string dataToBeVeryfied = loadLines();
+    int length = dataToBeVeryfied.length();
+
+    for (int i=0; i<length; i++)
+    {
+        cout << dataToBeVeryfied [i] << endl;
+
+        if ((dataToBeVeryfied[i] == char(44)) && (isDotFound == "NO"))
+        {
+            dataToBeVeryfied[i] = char(46);
+            isDotFound = "YES";
+        }
+
+        else
+        {
+            if ((dataToBeVeryfied[i] == char(46)) && (isDotFound == "NO"))
+            {
+                isDotFound = "YES";
+            }
+
+            else if (!isdigit(dataToBeVeryfied[i]))
+            {
+                return "NO";
+            }
+        }
+        return dataToBeVeryfied;
+    }
+}
+int AdjunctiveMethods::changeStringIntoInt(string text)
+{
+    string str = text;
+    int i;
+    istringstream iss(str);
+    iss >> i;
+
+    return i;
 }
 
 float AdjunctiveMethods::loadValue()
@@ -145,3 +129,14 @@ float AdjunctiveMethods::loadValue()
     cin >> input;
     return input;
 }
+
+float AdjunctiveMethods::changeStringIntoFloat(string str)
+{
+    stringstream ss;
+    float fl;
+    ss << str;
+    ss >> fl;
+
+    return fl;
+}
+
