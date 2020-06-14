@@ -6,7 +6,7 @@ void Expense::setExpenseId(int newExpenseId)
         expenseId = newExpenseId;
 }
 
-void Expense::setExpenseDate(string newExpenseDate)
+void Expense::setExpenseDate(int newExpenseDate)
 {
     expenseDate = newExpenseDate;
 }
@@ -26,7 +26,7 @@ int Expense::downloadExpenseId()
     return expenseId;
 }
 
-string Expense::downloadExpenseDate()
+int Expense::downloadExpenseDate()
 {
     return expenseDate;
 }

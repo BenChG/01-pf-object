@@ -30,6 +30,11 @@ void PersonalFinances::changeThePassword()
     userManager.changeThePassword();
 }
 
+void PersonalFinances::balanceOfCurrentMonth()
+{
+//    financeManager.balanceOfCurrentMonth();
+}
+
 int PersonalFinances::logInUser()
 {
     userManager.logInUser();

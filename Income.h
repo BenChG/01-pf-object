@@ -8,13 +8,13 @@ using namespace std;
 class Income
 {
     int incomeId;
-    string incomeDate;
+    int incomeDate;
     string incomeName;
     float incomeAmount;
 
 public:
 
-    Income (int incomeId=123, string incomeDate="2000-01-01", string incomeName="Income", float incomeAmount=123.45)
+    Income (int incomeId=123, int incomeDate=20000101, string incomeName="Income", float incomeAmount=123.45)
     {
         this->incomeId = incomeId;
         this->incomeDate = incomeDate;
@@ -23,12 +23,12 @@ public:
     }
 
     void setIncomeId(int newIncomeId);
-    void setIncomeDate (string newIncomeDate);
+    void setIncomeDate (int newIncomeDate);
     void setIncomeName (string newIncomeName);
     void setIncomeAmount(float newIncomeAmount);
 
     int downloadIncomeId();
-    string downloadIncomeDate();
+    int downloadIncomeDate();
     string downloadIncomeName();
     float downloadIncomeAmount();
 

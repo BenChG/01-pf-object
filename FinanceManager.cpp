@@ -5,28 +5,25 @@ Income FinanceManager::addNewIncome()
     Income income;
     AdjunctiveMethods adjunctiveMethods;
 
-    string incomeDate;
+
     string incomeName;
     string isAmountCorrect;
+    string date;
     float incomeAmount;
-
+    int incomeDate;
     int incomeId=incomes.size()+1;
-
     char choice = adjunctiveMethods.chooseDateVariant();
 
     if (choice == '1')
     {
-        incomeDate=dateMethods.loadCurrentDate();
+        date=dateMethods.loadCurrentDate();
         isDateCorrect="YES";
-        cout << incomeDate << endl;
-        system ("pause");
-
     }
 
     else if (choice == '2')
     {
-        incomeDate = adjunctiveMethods.loadLines();
-        isDateCorrect=dateMethods.checkIfDateIsCorrect(incomeDate);
+        date = adjunctiveMethods.loadLines();
+        isDateCorrect=dateMethods.checkIfDateIsCorrect(date);
     }
 
     else
@@ -36,8 +33,7 @@ Income FinanceManager::addNewIncome()
 
     if (isDateCorrect=="YES")
     {
-        cout << "Date is correct" << endl;
-        system ("pause");
+        incomeDate=dateMethods.changeDateIntoNumericFormat(date);
 
         cout << "Give me income name: " << endl;
         incomeName = adjunctiveMethods.loadLines();
@@ -78,28 +74,24 @@ Expense FinanceManager::addNewExpense()
     Expense expense;
     AdjunctiveMethods adjunctiveMethods;
 
-    string expenseDate;
     string expenseName;
     string isAmountCorrect;
+    string date;
     float expenseAmount;
-
-
+    int expenseDate;
     int expenseId=expenses.size()+1;
-
     char choice = adjunctiveMethods.chooseDateVariant();
 
     if (choice == '1')
     {
-        expenseDate=dateMethods.loadCurrentDate();
+        date=dateMethods.loadCurrentDate();
         isDateCorrect="YES";
-        cout << expenseDate << endl;
-        system ("pause");
     }
 
     else if (choice == '2')
     {
-        expenseDate = adjunctiveMethods.loadLines();
-        isDateCorrect=dateMethods.checkIfDateIsCorrect(expenseDate);
+        date = adjunctiveMethods.loadLines();
+        isDateCorrect=dateMethods.checkIfDateIsCorrect(date);
     }
 
     else
@@ -109,9 +101,7 @@ Expense FinanceManager::addNewExpense()
 
     if (isDateCorrect=="YES")
     {
-
-        cout << "Date is correct" << endl;
-        system ("pause");
+        expenseDate=dateMethods.changeDateIntoNumericFormat(date);
 
         cout << "Give me expense name: " << endl;
         expenseName = adjunctiveMethods.loadLines();
@@ -147,3 +137,26 @@ Expense FinanceManager::addNewExpense()
         system ("pause");
     }
 }
+/*
+void FinanceManager::showTheBalance(Income income)
+{
+string currentDate = dateMethods.loadCurrentDate();
+
+ cout << currentDate << endl;
+ cout << income.downloadIncomeId() << " ";
+ cout << income.downloadIncomeDate() << " ";
+ cout << setprecision(16) << income.downloadIncomeAmount() << " ";
+ cout << income.downloadIncomeName() << endl;
+ system ("pause");
+}
+
+void FinanceManager::balanceOfCurrentMonth()
+{
+ for (vector <Income> :: iterator itr = incomes.begin(); itr != incomes.end(); itr++)
+ {
+    showTheBalance(*itr);
+ }
+
+}
+*/
+

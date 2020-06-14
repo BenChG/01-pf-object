@@ -19,6 +19,7 @@ class DateMethods
 public:
     string checkIfDateIsCorrect(string date);
     string loadCurrentDate();
+    int changeDateIntoNumericFormat(string date);
 };
 
 #endif

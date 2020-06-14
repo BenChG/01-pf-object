@@ -1,6 +1,6 @@
 #include "FilesForFinanceManager.h"
 
-void FilesForFinanceManager::addNewIncomeToTheFileWithIncomes(int id, string date, string name, float amount)
+void FilesForFinanceManager::addNewIncomeToTheFileWithIncomes(int id, int date, string name, float amount)
 {
     CMarkup xml;
 
@@ -29,7 +29,7 @@ void FilesForFinanceManager::addNewIncomeToTheFileWithIncomes(int id, string dat
     system("pause");
 }
 
-void FilesForFinanceManager::addNewExpenseToTheFileWithExpenses(int id, string date, string name, float amount)
+void FilesForFinanceManager::addNewExpenseToTheFileWithExpenses(int id, int date, string name, float amount)
 {
     CMarkup xml;
 
@@ -72,17 +72,17 @@ vector <Income> FilesForFinanceManager::loadIncomesFromTheFile ()
         xml.FindElem( "Id" );
         int incomeId = adjunctiveMethods.changeStringIntoInt(xml.GetData());
         xml.FindElem( "Date" );
-        string date = xml.GetData();
+        int incomeDate = adjunctiveMethods.changeStringIntoInt(xml.GetData());
         xml.FindElem( "Name" );
-        string name = xml.GetData();
+        string incomeName = xml.GetData();
         xml.FindElem( "Amount" );
-        float amount = adjunctiveMethods.changeStringIntoFloat(xml.GetData());
+        float incomeAmount = adjunctiveMethods.changeStringIntoFloat(xml.GetData());
         xml.OutOfElem();
 
         income.setIncomeId(incomeId);
-        income.setIncomeDate(date);
-        income.setIncomeName(name);
-        income.setIncomeAmount(amount);
+        income.setIncomeDate(incomeDate);
+        income.setIncomeName(incomeName);
+        income.setIncomeAmount(incomeAmount);
         incomes.push_back(income);
     }
 
@@ -103,17 +103,17 @@ vector <Expense> FilesForFinanceManager::loadExpensesFromTheFile ()
         xml.FindElem( "Id" );
         int expenseId = adjunctiveMethods.changeStringIntoInt(xml.GetData());
         xml.FindElem( "Date" );
-        string date = xml.GetData();
+        int expenseDate = adjunctiveMethods.changeStringIntoInt(xml.GetData());
         xml.FindElem( "Name" );
-        string name = xml.GetData();
+        string expenseName = xml.GetData();
         xml.FindElem( "Amount" );
-        float amount = adjunctiveMethods.changeStringIntoFloat(xml.GetData());
+        float expenseAmount = adjunctiveMethods.changeStringIntoFloat(xml.GetData());
         xml.OutOfElem();
 
         expense.setExpenseId(expenseId);
-        expense.setExpenseDate(date);
-        expense.setExpenseName(name);
-        expense.setExpenseAmount(amount);
+        expense.setExpenseDate(expenseDate);
+        expense.setExpenseName(expenseName);
+        expense.setExpenseAmount(expenseAmount);
         expenses.push_back(expense);
     }
 
