@@ -1,6 +1,7 @@
 #ifndef FINANCEMANAGER_H
 #define FINANCEMANAGER_H
 
+#include <iomanip>
 #include "Income.h"
 #include "Expense.h"
 #include "FilesForFinanceManager.h"
@@ -33,6 +34,8 @@ public:
 
     Income addNewIncome();
     Expense addNewExpense();
+    //void balanceOfCurrentMonth();
+    //void showTheBalance(Income incomes);
 };
 
 #endif

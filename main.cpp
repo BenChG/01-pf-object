@@ -53,7 +53,7 @@ int main()
             case '3':
                 cout << "Option 3 selected" << endl;
                 system ("pause");
-                //personalFinances.balanceOfCurrentMonth();
+                personalFinances.balanceOfCurrentMonth();
                 break;
 
             case '4':

@@ -6,7 +6,7 @@ void Income::setIncomeId(int newIncomeId)
         incomeId = newIncomeId;
 }
 
-void Income::setIncomeDate(string newIncomeDate)
+void Income::setIncomeDate(int newIncomeDate)
 {
     incomeDate = newIncomeDate;
 }
@@ -26,7 +26,7 @@ int Income::downloadIncomeId()
     return incomeId;
 }
 
-string Income::downloadIncomeDate()
+int Income::downloadIncomeDate()
 {
     return incomeDate;
 }

@@ -165,5 +165,23 @@ string DateMethods::loadCurrentDate()
     }
 
     string currentDate = year + "-" + month + "-" + day;
+
     return currentDate;
+}
+
+int DateMethods::changeDateIntoNumericFormat(string date)
+{
+    int incomeDate;
+    string dateWithoutDashes = "";
+    string year = date.substr(0,4);
+    string month = date.substr(5,2);
+    string day = date.substr(5,2);
+
+    dateWithoutDashes = year + month + day;
+
+    cout << "dateWithoutDashes" << dateWithoutDashes << endl;
+
+    incomeDate = adjunctiveMethods.changeStringIntoInt(dateWithoutDashes);
+
+    return incomeDate;
 }

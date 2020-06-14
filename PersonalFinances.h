@@ -26,6 +26,8 @@ public:
     void addNewIncome();
     void addNewExpense();
     void changeThePassword();
+    void balanceOfCurrentMonth();
+    void showTheBalance(Income income);
     int logInUser();
     int logOffUser();
 };
