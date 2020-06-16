@@ -29,8 +29,8 @@ public:
           NAME_OF_FILE_WITH_EXPENSES (nameOfFileWithExpenses)
     {};
 
-    void addNewIncomeToTheFileWithIncomes(int id, int date, string name, float amount);
-    void addNewExpenseToTheFileWithExpenses(int id, int date, string name, float amount);
+    void addNewIncomeToTheFileWithIncomes(int incomeId, int userId, int incomeDate, string incomeName, float incomeAmount);
+    void addNewExpenseToTheFileWithExpenses(int expenseId, int userId, int expenseDate, string expenseName, float expenseAmount);
     vector <Income> loadIncomesFromTheFile();
     vector <Expense> loadExpensesFromTheFile();
 };

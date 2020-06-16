@@ -6,6 +6,12 @@ void Expense::setExpenseId(int newExpenseId)
         expenseId = newExpenseId;
 }
 
+void Expense::setUserId(int newUserId)
+{
+    if (newUserId >= 0)
+        userId = newUserId;
+}
+
 void Expense::setExpenseDate(int newExpenseDate)
 {
     expenseDate = newExpenseDate;
@@ -24,6 +30,11 @@ void Expense::setExpenseAmount (float newExpenseAmount)
 int Expense::downloadExpenseId()
 {
     return expenseId;
+}
+
+int Expense::downloadUserId()
+{
+    return userId;
 }
 
 int Expense::downloadExpenseDate()

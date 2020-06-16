@@ -4,14 +4,16 @@ Income FinanceManager::addNewIncome()
 {
     Income income;
     AdjunctiveMethods adjunctiveMethods;
+    //UserManager userManager;
 
 
     string incomeName;
     string isAmountCorrect;
     string date;
     float incomeAmount;
-    int incomeDate;
     int incomeId=incomes.size()+1;
+    int userId=0;//userManager.downloadIdOfLoggedInUser();
+    int incomeDate;
     char choice = adjunctiveMethods.chooseDateVariant();
 
     if (choice == '1')
@@ -52,12 +54,13 @@ Income FinanceManager::addNewIncome()
             incomeAmount = adjunctiveMethods.changeStringIntoFloat(isAmountCorrect);
 
             income.setIncomeId(incomeId);
+            income.setIncomeId(userId);
             income.setIncomeDate(incomeDate);
             income.setIncomeName(incomeName);
             income.setIncomeAmount(incomeAmount);
             incomes.push_back(income);
 
-            filesForFinanceManager.addNewIncomeToTheFileWithIncomes(incomeId, incomeDate, incomeName, incomeAmount);
+            filesForFinanceManager.addNewIncomeToTheFileWithIncomes(incomeId, userId, incomeDate, incomeName, incomeAmount);
         }
     }
 
@@ -73,13 +76,15 @@ Expense FinanceManager::addNewExpense()
 {
     Expense expense;
     AdjunctiveMethods adjunctiveMethods;
+    //UserManager userManager;
 
     string expenseName;
     string isAmountCorrect;
     string date;
     float expenseAmount;
-    int expenseDate;
     int expenseId=expenses.size()+1;
+    int userId=0;//userManager.downloadIdOfLoggedInUser();
+    int expenseDate;
     char choice = adjunctiveMethods.chooseDateVariant();
 
     if (choice == '1')
@@ -120,12 +125,13 @@ Expense FinanceManager::addNewExpense()
             expenseAmount = adjunctiveMethods.changeStringIntoFloat(isAmountCorrect);
 
             expense.setExpenseId(expenseId);
+            expense.setExpenseId(userId);
             expense.setExpenseDate(expenseDate);
             expense.setExpenseName(expenseName);
             expense.setExpenseAmount(expenseAmount);
             expenses.push_back(expense);
 
-            filesForFinanceManager.addNewExpenseToTheFileWithExpenses(expenseId, expenseDate, expenseName, expenseAmount);
+            filesForFinanceManager.addNewExpenseToTheFileWithExpenses(expenseId, userId, expenseDate, expenseName, expenseAmount);
 
             return expense;
         }
@@ -137,12 +143,13 @@ Expense FinanceManager::addNewExpense()
         system ("pause");
     }
 }
-/*
-void FinanceManager::showTheBalance(Income income)
-{
-string currentDate = dateMethods.loadCurrentDate();
 
- cout << currentDate << endl;
+void FinanceManager::showTheBalance(Income income, int beginningDate, int endDate)
+{
+int incomeDate=income.downloadIncomeDate();
+
+if ((incomeDate>=beginningDate) && (incomeDate<=endDate))
+{
  cout << income.downloadIncomeId() << " ";
  cout << income.downloadIncomeDate() << " ";
  cout << setprecision(16) << income.downloadIncomeAmount() << " ";
@@ -150,13 +157,24 @@ string currentDate = dateMethods.loadCurrentDate();
  system ("pause");
 }
 
+
+}
+
 void FinanceManager::balanceOfCurrentMonth()
 {
+string currentDate = dateMethods.loadCurrentDate();
+int beginningDate = dateMethods.downloadBeginningDate(currentDate);
+int endDate = dateMethods.downloadEndDate(currentDate);
+
+cout << "beginningDate: " << beginningDate << endl;
+cout << "endDate: " << endDate << endl;
+system ("pause");
+
  for (vector <Income> :: iterator itr = incomes.begin(); itr != incomes.end(); itr++)
  {
-    showTheBalance(*itr);
+    showTheBalance(*itr, beginningDate, endDate);
  }
 
 }
-*/
+
 

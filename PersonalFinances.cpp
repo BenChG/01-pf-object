@@ -32,7 +32,7 @@ void PersonalFinances::changeThePassword()
 
 void PersonalFinances::balanceOfCurrentMonth()
 {
-//    financeManager.balanceOfCurrentMonth();
+  financeManager.balanceOfCurrentMonth();
 }
 
 int PersonalFinances::logInUser()

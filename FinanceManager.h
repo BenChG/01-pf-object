@@ -7,6 +7,7 @@
 #include "FilesForFinanceManager.h"
 #include "AdjunctiveMethods.h"
 #include "DateMethods.h"
+#include "UserManager.h"
 
 using namespace std;
 
@@ -17,6 +18,7 @@ class FinanceManager
     FilesForFinanceManager filesForFinanceManager;
     AdjunctiveMethods adjunctiveMethods;
     DateMethods dateMethods;
+    //UserManager userManager;
 
     vector <Income> incomes;
     vector <Expense> expenses;
@@ -34,8 +36,8 @@ public:
 
     Income addNewIncome();
     Expense addNewExpense();
-    //void balanceOfCurrentMonth();
-    //void showTheBalance(Income incomes);
+    void balanceOfCurrentMonth();
+    void showTheBalance(Income incomes, int beginningDate, int endDate);
 };
 
 #endif

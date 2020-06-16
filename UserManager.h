@@ -16,7 +16,6 @@ class UserManager
 
     vector <User> users;
     int idOfLoggedInUser;
-
     int findUser(User user, string login);
 
 public:
@@ -25,12 +24,13 @@ public:
         : filesWithUsers(nameOfFileWithUsers)
     {
         users=filesWithUsers.loadUsersFromTheFile();
-        idOfLoggedInUser=0;
+        //idOfLoggedInUser=0;
     };
 
     User userRegistration();
     int logInUser();
     int logOffUser();
+    int downloadIdOfLoggedInUser();
     void changeThePassword();
 };
 

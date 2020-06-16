@@ -175,13 +175,42 @@ int DateMethods::changeDateIntoNumericFormat(string date)
     string dateWithoutDashes = "";
     string year = date.substr(0,4);
     string month = date.substr(5,2);
-    string day = date.substr(5,2);
+    string day = date.substr(8,2);
 
     dateWithoutDashes = year + month + day;
-
-    cout << "dateWithoutDashes" << dateWithoutDashes << endl;
 
     incomeDate = adjunctiveMethods.changeStringIntoInt(dateWithoutDashes);
 
     return incomeDate;
 }
+
+int DateMethods::downloadBeginningDate(string date)
+{
+    int beginningDate;
+    string dateWithoutDashes = "";
+    string year = date.substr(0,4);
+    string month = date.substr(5,2);
+    string day = "01";
+
+    dateWithoutDashes = year + month + day;
+
+    beginningDate = adjunctiveMethods.changeStringIntoInt(dateWithoutDashes);
+
+    return beginningDate;
+}
+
+int DateMethods::downloadEndDate(string date)
+{
+    int endDate;
+    string dateWithoutDashes = "";
+    string year = date.substr(0,4);
+    string month = date.substr(5,2);
+    string day = "31";
+
+    dateWithoutDashes = year + month + day;
+
+    endDate = adjunctiveMethods.changeStringIntoInt(dateWithoutDashes);
+
+    return endDate;
+}
+

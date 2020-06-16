@@ -1,6 +1,6 @@
 #include "FilesForFinanceManager.h"
 
-void FilesForFinanceManager::addNewIncomeToTheFileWithIncomes(int id, int date, string name, float amount)
+void FilesForFinanceManager::addNewIncomeToTheFileWithIncomes(int incomeId, int userId, int incomeDate, string incomeName, float incomeAmount)
 {
     CMarkup xml;
 
@@ -16,20 +16,21 @@ void FilesForFinanceManager::addNewIncomeToTheFileWithIncomes(int id, int date, 
     xml.IntoElem();
     xml.AddElem("Income");
     xml.IntoElem();
-    xml.AddElem("Id", id);
-    xml.AddElem("Date", date);
-    xml.AddElem("Name", name);
-    xml.AddElem("Amount", amount);
+    xml.AddElem("incomeId", incomeId);
+    xml.AddElem("userId", userId);
+    xml.AddElem("incomeDate", incomeDate);
+    xml.AddElem("incomeName", incomeName);
+    xml.AddElem("incomeAmount", incomeAmount);
 
     xml.Save(NAME_OF_FILE_WITH_INCOMES);
 
     cout << endl << "New income added." << endl;
-    cout << "Size of vector incomes: " << id << endl << endl;
+    cout << "Size of vector incomes: " << incomeId << endl << endl;
 
     system("pause");
 }
 
-void FilesForFinanceManager::addNewExpenseToTheFileWithExpenses(int id, int date, string name, float amount)
+void FilesForFinanceManager::addNewExpenseToTheFileWithExpenses(int expenseId, int userId, int expenseDate, string expenseName, float expenseAmount)
 {
     CMarkup xml;
 
@@ -45,15 +46,16 @@ void FilesForFinanceManager::addNewExpenseToTheFileWithExpenses(int id, int date
     xml.IntoElem();
     xml.AddElem("Expense");
     xml.IntoElem();
-    xml.AddElem("Id", id);
-    xml.AddElem("Date", date);
-    xml.AddElem("Name", name);
-    xml.AddElem("Amount", amount);
+    xml.AddElem("expenseId", expenseId);
+    xml.AddElem("userId", userId);
+    xml.AddElem("expenseDate", expenseDate);
+    xml.AddElem("expenseName", expenseName);
+    xml.AddElem("expenseAmount", expenseAmount);
 
     xml.Save(NAME_OF_FILE_WITH_EXPENSES);
 
     cout << endl << "New expense added." << endl;
-    cout << "Size of vector expenses: " << id << endl << endl;
+    cout << "Size of vector expenses: " << expenseId << endl << endl;
 
     system("pause");
 }
@@ -69,17 +71,20 @@ vector <Income> FilesForFinanceManager::loadIncomesFromTheFile ()
     while (xml.FindElem("Income") )
     {
         xml.IntoElem();
-        xml.FindElem( "Id" );
+        xml.FindElem( "incomeId" );
         int incomeId = adjunctiveMethods.changeStringIntoInt(xml.GetData());
-        xml.FindElem( "Date" );
+        xml.FindElem( "userId" );
+        int userId = adjunctiveMethods.changeStringIntoInt(xml.GetData());
+        xml.FindElem( "incomeDate" );
         int incomeDate = adjunctiveMethods.changeStringIntoInt(xml.GetData());
-        xml.FindElem( "Name" );
+        xml.FindElem( "incomeName" );
         string incomeName = xml.GetData();
-        xml.FindElem( "Amount" );
+        xml.FindElem( "incomeAmount" );
         float incomeAmount = adjunctiveMethods.changeStringIntoFloat(xml.GetData());
         xml.OutOfElem();
 
         income.setIncomeId(incomeId);
+        income.setIncomeId(userId);
         income.setIncomeDate(incomeDate);
         income.setIncomeName(incomeName);
         income.setIncomeAmount(incomeAmount);
@@ -100,17 +105,20 @@ vector <Expense> FilesForFinanceManager::loadExpensesFromTheFile ()
     while (xml.FindElem("Expense") )
     {
         xml.IntoElem();
-        xml.FindElem( "Id" );
+        xml.FindElem( "incomeId" );
         int expenseId = adjunctiveMethods.changeStringIntoInt(xml.GetData());
-        xml.FindElem( "Date" );
+        xml.FindElem( "userId" );
+        int userId = adjunctiveMethods.changeStringIntoInt(xml.GetData());
+        xml.FindElem( "expenseDate" );
         int expenseDate = adjunctiveMethods.changeStringIntoInt(xml.GetData());
-        xml.FindElem( "Name" );
+        xml.FindElem( "expenseName" );
         string expenseName = xml.GetData();
-        xml.FindElem( "Amount" );
+        xml.FindElem( "expenseAmount" );
         float expenseAmount = adjunctiveMethods.changeStringIntoFloat(xml.GetData());
         xml.OutOfElem();
 
         expense.setExpenseId(expenseId);
+        expense.setExpenseId(userId);
         expense.setExpenseDate(expenseDate);
         expense.setExpenseName(expenseName);
         expense.setExpenseAmount(expenseAmount);

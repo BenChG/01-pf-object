@@ -20,6 +20,8 @@ public:
     string checkIfDateIsCorrect(string date);
     string loadCurrentDate();
     int changeDateIntoNumericFormat(string date);
+    int downloadBeginningDate(string date);
+    int downloadEndDate(string date);
 };
 
 #endif
