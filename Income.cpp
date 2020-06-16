@@ -6,6 +6,12 @@ void Income::setIncomeId(int newIncomeId)
         incomeId = newIncomeId;
 }
 
+void Income::setUserId(int newUserId)
+{
+    if (newUserId >= 0)
+        userId = newUserId;
+}
+
 void Income::setIncomeDate(int newIncomeDate)
 {
     incomeDate = newIncomeDate;
@@ -24,6 +30,11 @@ void Income::setIncomeAmount (float newIncomeAmount)
 int Income::downloadIncomeId()
 {
     return incomeId;
+}
+
+int Income::downloadUserId()
+{
+    return userId;
 }
 
 int Income::downloadIncomeDate()

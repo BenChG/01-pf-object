@@ -112,6 +112,12 @@ int UserManager::logOffUser()
     return idOfLoggedInUser;
 }
 
+int UserManager::downloadIdOfLoggedInUser()
+{
+ //UserManager userManager;
+ return idOfLoggedInUser;
+}
+
 void UserManager::changeThePassword()
 {
     string newPassword;
