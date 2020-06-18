@@ -4,15 +4,15 @@ Income FinanceManager::addNewIncome()
 {
     Income income;
     AdjunctiveMethods adjunctiveMethods;
-    //UserManager userManager;
-
-
+    DateMethods dateMethods;
     string incomeName;
     string isAmountCorrect;
     string date;
     float incomeAmount;
     int incomeId=incomes.size()+1;
-    int userId=0;//userManager.downloadIdOfLoggedInUser();
+    int userId=ID_OF_LOGGED_IN_USER;
+    cout << "userId" << userId << endl;
+    system ("pause");
     int incomeDate;
     char choice = adjunctiveMethods.chooseDateVariant();
 
@@ -76,14 +76,14 @@ Expense FinanceManager::addNewExpense()
 {
     Expense expense;
     AdjunctiveMethods adjunctiveMethods;
-    //UserManager userManager;
+    DateMethods dateMethods;
 
     string expenseName;
     string isAmountCorrect;
     string date;
     float expenseAmount;
     int expenseId=expenses.size()+1;
-    int userId=0;//userManager.downloadIdOfLoggedInUser();
+   int userId=ID_OF_LOGGED_IN_USER;
     int expenseDate;
     char choice = adjunctiveMethods.chooseDateVariant();
 
@@ -162,6 +162,7 @@ if ((incomeDate>=beginningDate) && (incomeDate<=endDate))
 
 void FinanceManager::balanceOfCurrentMonth()
 {
+DateMethods dateMethods;
 string currentDate = dateMethods.loadCurrentDate();
 int beginningDate = dateMethods.downloadBeginningDate(currentDate);
 int endDate = dateMethods.downloadEndDate(currentDate);
@@ -176,5 +177,6 @@ system ("pause");
  }
 
 }
+
 
 

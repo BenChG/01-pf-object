@@ -17,12 +17,12 @@ void PersonalFinances::userRegistration()
 
 void PersonalFinances::addNewIncome()
 {
-    financeManager.addNewIncome();
+    financeManager->addNewIncome();
 }
 
 void PersonalFinances::addNewExpense()
 {
-    financeManager.addNewExpense();
+    financeManager->addNewExpense();
 }
 
 void PersonalFinances::changeThePassword()
@@ -32,17 +32,17 @@ void PersonalFinances::changeThePassword()
 
 void PersonalFinances::balanceOfCurrentMonth()
 {
-  financeManager.balanceOfCurrentMonth();
+  financeManager->balanceOfCurrentMonth();
 }
 
 int PersonalFinances::logInUser()
 {
     userManager.logInUser();
+
+      financeManager = new FinanceManager (NAME_OF_FILE_WITH_INCOMES, NAME_OF_FILE_WITH_EXPENSES, userManager.downloadIdOfLoggedInUser());
 }
 
 int PersonalFinances::logOffUser()
 {
     userManager.logOffUser();
 }
-
-

@@ -114,7 +114,6 @@ int UserManager::logOffUser()
 
 int UserManager::downloadIdOfLoggedInUser()
 {
- //UserManager userManager;
  return idOfLoggedInUser;
 }
 
