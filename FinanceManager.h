@@ -7,7 +7,6 @@
 #include "FilesForFinanceManager.h"
 #include "AdjunctiveMethods.h"
 #include "DateMethods.h"
-#include "UserManager.h"
 
 using namespace std;
 
@@ -16,18 +15,19 @@ class FinanceManager
     Income income;
     Expense expense;
     FilesForFinanceManager filesForFinanceManager;
-    AdjunctiveMethods adjunctiveMethods;
-    DateMethods dateMethods;
-    //UserManager userManager;
+   // AdjunctiveMethods adjunctiveMethods;
+   // DateMethods dateMethods;
 
     vector <Income> incomes;
     vector <Expense> expenses;
     string isDateCorrect;
+    const int ID_OF_LOGGED_IN_USER;
 
 public:
 
-    FinanceManager (string nameOfFileWithIncomes, string nameOfFileWithExpenses)
-        : filesForFinanceManager(nameOfFileWithIncomes,nameOfFileWithExpenses)
+    FinanceManager (string nameOfFileWithIncomes, string nameOfFileWithExpenses, int idOfLoggedInUser)
+        : filesForFinanceManager (nameOfFileWithIncomes, nameOfFileWithExpenses),
+          ID_OF_LOGGED_IN_USER (idOfLoggedInUser)
     {
         string isDateCorrect = "NO";
         incomes=filesForFinanceManager.loadIncomesFromTheFile();

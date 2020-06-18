@@ -11,14 +11,26 @@ class PersonalFinances
 {
     AdjunctiveMethods adjunctiveMethods;
     UserManager userManager;
-    FinanceManager financeManager;
+    FinanceManager *financeManager;
+    const string NAME_OF_FILE_WITH_INCOMES;
+    const string NAME_OF_FILE_WITH_EXPENSES;
+
 
 public:
 
     PersonalFinances(string nameOfFileWithUsers, string nameOfFileWithIncomes, string nameOfFileWithExpenses)
         : userManager(nameOfFileWithUsers),
-          financeManager (nameOfFileWithIncomes, nameOfFileWithExpenses)
-    {};
+          NAME_OF_FILE_WITH_INCOMES (nameOfFileWithIncomes),
+          NAME_OF_FILE_WITH_EXPENSES (nameOfFileWithExpenses)
+        {
+    financeManager = NULL;
+    };
+
+    ~PersonalFinances()
+    {
+     delete financeManager;
+     financeManager = NULL;
+    };
 
     char selectOptionFromLoggingMenu();
     char selectOptionFromMainMenu();
