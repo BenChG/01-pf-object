@@ -2,18 +2,22 @@
 #define EXPENSE_H
 
 #include <iostream>
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <iterator>
 
 using namespace std;
 
 class Expense
 {
+
+public:
     int expenseId;
     int userId;
     int expenseDate;
     string expenseName;
     float expenseAmount;
-
-public:
 
     Expense (int expenseId=123, int userId=123, int expenseDate=20000101, string expenseName="Expense", float expenseAmount=123.45)
     {
