@@ -144,19 +144,48 @@ Expense FinanceManager::addNewExpense()
     }
 }
 
-void FinanceManager::showTheBalance(Income income, int beginningDate, int endDate)
+
+
+void FinanceManager::showTheIncomes(Income income, int beginningDate, int endDate)
 {
 int incomeDate=income.downloadIncomeDate();
 
 if ((incomeDate>=beginningDate) && (incomeDate<=endDate))
 {
- cout << income.downloadIncomeId() << " ";
- cout << income.downloadIncomeDate() << " ";
- cout << setprecision(16) << income.downloadIncomeAmount() << " ";
- cout << income.downloadIncomeName() << endl;
+ cout << "Id: " << income.downloadIncomeId() << endl;
+ cout << "Date: " <<income.downloadIncomeDate() << endl;
+ cout << "Name: " <<income.downloadIncomeName() << endl;
+ cout << "Amount: " << setprecision(16) << income.downloadIncomeAmount() << endl << endl;
  system ("pause");
 }
+}
 
+  bool sortByDate(const Expense &p1,const Expense &p2)
+{
+    return p1.expenseDate < p2.expenseDate;
+}
+
+
+void FinanceManager::showTheExpenses(Expense expense, int beginningDate, int endDate)
+{
+
+cout << "Id: " << expense.downloadExpenseId() << endl;
+ cout << "Date: " <<  expense.downloadExpenseDate() << endl;
+ cout << "Name: " <<  expense.downloadExpenseName() << endl;
+ cout << "Amount: " <<  setprecision(16) << expense.downloadExpenseAmount() << endl << endl;
+ system ("pause");
+/*
+int expenseDate=expense.downloadExpenseDate();
+
+if ((expenseDate>=beginningDate) && (expenseDate<=endDate))
+{
+ cout << "Id: " << expense.downloadExpenseId() << endl;
+ cout << "Date: " <<  expense.downloadExpenseDate() << endl;
+ cout << "Name: " <<  expense.downloadExpenseName() << endl;
+ cout << "Amount: " <<  setprecision(16) << expense.downloadExpenseAmount() << endl << endl;
+ system ("pause");
+}
+*/
 
 }
 
@@ -167,13 +196,30 @@ string currentDate = dateMethods.loadCurrentDate();
 int beginningDate = dateMethods.downloadBeginningDate(currentDate);
 int endDate = dateMethods.downloadEndDate(currentDate);
 
-cout << "beginningDate: " << beginningDate << endl;
-cout << "endDate: " << endDate << endl;
-system ("pause");
+/*
+cout << "----------LIST OF INCOMES----------" << endl;
 
  for (vector <Income> :: iterator itr = incomes.begin(); itr != incomes.end(); itr++)
  {
-    showTheBalance(*itr, beginningDate, endDate);
+    showTheIncomes(*itr, beginningDate, endDate);
+
+ }
+ */
+ cout << endl << "----------LIST OF EXPENSES----------" << endl;
+
+  for (vector <Expense> :: iterator itr = expenses.begin(); itr != expenses.end(); itr++)
+ {
+    showTheExpenses(*itr, beginningDate, endDate);
+ }
+
+  sort (expenses.begin(), expenses.end(), sortByDate);
+
+
+  cout << endl << "----------LIST OF EXPENSES AFTER SORTING----------" << endl;
+
+  for (vector <Expense> :: iterator itr = expenses.begin(); itr != expenses.end(); itr++)
+ {
+    showTheExpenses(*itr, beginningDate, endDate);
  }
 
 }

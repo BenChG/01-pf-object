@@ -2,6 +2,10 @@
 #define FINANCEMANAGER_H
 
 #include <iomanip>
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <iterator>
 #include "Income.h"
 #include "Expense.h"
 #include "FilesForFinanceManager.h"
@@ -37,7 +41,9 @@ public:
     Income addNewIncome();
     Expense addNewExpense();
     void balanceOfCurrentMonth();
-    void showTheBalance(Income incomes, int beginningDate, int endDate);
+    void showTheIncomes(Income income, int beginningDate, int endDate);
+    void showTheExpenses(Expense expense, int beginningDate, int endDate);
+    void sortVector();
 };
 
 #endif

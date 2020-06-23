@@ -20,6 +20,7 @@ class FilesForFinanceManager
     const string NAME_OF_FILE_WITH_EXPENSES;
     vector <Income> incomes;
     vector <Expense> expenses;
+    vector<Expense>::iterator it;
     fstream file;
 
 public:
