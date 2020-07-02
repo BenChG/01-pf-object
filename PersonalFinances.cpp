@@ -35,6 +35,11 @@ void PersonalFinances::balanceOfCurrentMonth()
   financeManager->balanceOfCurrentMonth();
 }
 
+void PersonalFinances::balanceOfPreviousMonth()
+{
+  financeManager->balanceOfPreviousMonth();
+}
+
 int PersonalFinances::logInUser()
 {
     userManager.logInUser();

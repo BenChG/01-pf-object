@@ -169,6 +169,42 @@ string DateMethods::loadCurrentDate()
     return currentDate;
 }
 
+string DateMethods::changeDateIntoPreviousMonth(string date)
+{
+    string year = date.substr(0,4);
+    string month = date.substr(5,2);
+    string day = date.substr(8,2);
+    int yearInNumbers = adjunctiveMethods.changeStringIntoInt(year);
+    int monthInNumbers=adjunctiveMethods.changeStringIntoInt(month);
+    string previousMonthDate = "blad";
+
+    if (monthInNumbers==1)
+    {
+        monthInNumbers=12;
+        yearInNumbers=yearInNumbers-1;
+    }
+
+    else
+    {
+        monthInNumbers=monthInNumbers-1;
+    }
+
+    year=adjunctiveMethods.changeIntIntoString(yearInNumbers);
+    month=adjunctiveMethods.changeIntIntoString(monthInNumbers);
+
+    if (monthInNumbers<10)
+    {
+        previousMonthDate = year + "-" + "0" + month + "-" + day;
+    }
+
+    else
+    {
+         previousMonthDate = year + "-" + month + "-" + day;
+    }
+
+    return previousMonthDate;
+}
+
 int DateMethods::changeDateIntoNumericFormat(string date)
 {
     int incomeDate;

@@ -19,6 +19,7 @@ class DateMethods
 public:
     string checkIfDateIsCorrect(string date);
     string loadCurrentDate();
+    string changeDateIntoPreviousMonth(string date);
     int changeDateIntoNumericFormat(string date);
     int downloadBeginningDate(string date);
     int downloadEndDate(string date);
