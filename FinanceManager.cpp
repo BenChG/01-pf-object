@@ -137,31 +137,31 @@ Expense FinanceManager::addNewExpense()
     }
 }
 
-int FinanceManager::addIncomeFromSelectedPeriod(Income income, int beginningDate, int endDate)
+int FinanceManager::addIncomeFromSelectedPeriod(Income income, int beginningDate, int endingDate)
 {
     int incomeDate=income.downloadIncomeDate();
-    if ((incomeDate>=beginningDate) && (incomeDate<=endDate))
+    if ((incomeDate>=beginningDate) && (incomeDate<=endingDate))
     {
         return income.downloadIncomeAmount();
     }
     return 0;
 }
 
-int FinanceManager::addExpenseFromSelectedPeriod(Expense expense, int beginningDate, int endDate)
+int FinanceManager::addExpenseFromSelectedPeriod(Expense expense, int beginningDate, int endingDate)
 {
     int expenseDate=expense.downloadExpenseDate();
-    if ((expenseDate>=beginningDate) && (expenseDate<=endDate))
+    if ((expenseDate>=beginningDate) && (expenseDate<=endingDate))
     {
         return expense.downloadExpenseAmount();
     }
     return 0;
 }
 
-void FinanceManager::showTheIncomes(Income income, int beginningDate, int endDate)
+void FinanceManager::showTheIncomes(Income income, int beginningDate, int endingDate)
 {
     int incomeDate=income.downloadIncomeDate();
 
-    if ((incomeDate>=beginningDate) && (incomeDate<=endDate))
+    if ((incomeDate>=beginningDate) && (incomeDate<=endingDate))
     {
         cout << "Id: " << income.downloadIncomeId() << endl;
         cout << "Date: " <<income.downloadIncomeDate() << endl;
@@ -171,10 +171,10 @@ void FinanceManager::showTheIncomes(Income income, int beginningDate, int endDat
     }
 }
 
-void FinanceManager::showTheExpenses(Expense expense, int beginningDate, int endDate)
+void FinanceManager::showTheExpenses(Expense expense, int beginningDate, int endingDate)
 {
     int expenseDate=expense.downloadExpenseDate();
-    if ((expenseDate>=beginningDate) && (expenseDate<=endDate))
+    if ((expenseDate>=beginningDate) && (expenseDate<=endingDate))
     {
         cout << "Id: " << expense.downloadExpenseId() << endl;
         cout << "Date: " <<  expense.downloadExpenseDate() << endl;
@@ -194,7 +194,7 @@ bool sortExpensesByDate(Expense &p1, Expense &p2)
     return p1.downloadExpenseDate() < p2.downloadExpenseDate();
 }
 
-void FinanceManager::displayBalance(int beginningDate, int endDate)
+void FinanceManager::displayBalance(int beginningDate, int endingDate)
 {
     sort (incomes.begin(), incomes.end(), sortIncomesByDate);
 
@@ -202,8 +202,8 @@ void FinanceManager::displayBalance(int beginningDate, int endDate)
 
     for (vector <Income> :: iterator itr = incomes.begin(); itr != incomes.end(); itr++)
     {
-        showTheIncomes(*itr, beginningDate, endDate);
-        sumOfIncomes=sumOfIncomes+addIncomeFromSelectedPeriod(*itr, beginningDate, endDate);
+        showTheIncomes(*itr, beginningDate, endingDate);
+        sumOfIncomes=sumOfIncomes+addIncomeFromSelectedPeriod(*itr, beginningDate, endingDate);
     }
 
     sort (expenses.begin(), expenses.end(), sortExpensesByDate);
@@ -213,8 +213,8 @@ void FinanceManager::displayBalance(int beginningDate, int endDate)
 
     for (vector <Expense> :: iterator itr = expenses.begin(); itr != expenses.end(); itr++)
     {
-        showTheExpenses(*itr, beginningDate, endDate);
-        sumOfExpenses=sumOfExpenses+addExpenseFromSelectedPeriod(*itr, beginningDate, endDate);
+        showTheExpenses(*itr, beginningDate, endingDate);
+        sumOfExpenses=sumOfExpenses+addExpenseFromSelectedPeriod(*itr, beginningDate, endingDate);
     }
 
     cout << "Sum of incomes : " << sumOfIncomes << endl;
@@ -227,9 +227,9 @@ void FinanceManager::balanceOfCurrentMonth()
 {
     currentDate = dateMethods.loadCurrentDate();
     beginningDate = dateMethods.downloadBeginningDate(choosenDate);
-    endDate = dateMethods.downloadEndDate(choosenDate);
+    endingDate = dateMethods.downloadEndDate(choosenDate);
 
-    displayBalance(beginningDate, endDate);
+    displayBalance(beginningDate, endingDate);
 }
 
 void FinanceManager::balanceOfPreviousMonth()
@@ -238,8 +238,59 @@ void FinanceManager::balanceOfPreviousMonth()
     choosenDate = dateMethods.changeDateIntoPreviousMonth(currentDate);
 
     beginningDate = dateMethods.downloadBeginningDate(choosenDate);
-    endDate = dateMethods.downloadEndDate(choosenDate);
+    endingDate = dateMethods.downloadEndDate(choosenDate);
 
-    displayBalance(beginningDate, endDate);
+    displayBalance(beginningDate, endingDate);
 }
 
+
+void FinanceManager::balanceOfSelectedPeriod()
+{
+ string firstDate;
+ string lastDate;
+  cout << "Please provide beginning date (yyyy-mm-dd): ";
+  cin >> firstDate;
+
+  isDateCorrect=dateMethods.checkIfDateIsCorrect(firstDate);
+
+  if (isDateCorrect=="YES")
+  {
+    cout << "Please provide ending date (yyyy-mm-dd): ";
+    cin >> lastDate;
+    isDateCorrect=dateMethods.checkIfDateIsCorrect(lastDate);
+
+    if (isDateCorrect=="YES")
+    {
+
+     beginningDate=dateMethods.changeDateIntoNumericFormat(firstDate);
+     endingDate=dateMethods.changeDateIntoNumericFormat(lastDate);
+     if (beginningDate>endingDate)
+     {
+        cout << "Provided values are incorrect." << endl;
+        cout << "Beginning date is higher, than ending date." << endl;
+        cout << "Try again." << endl;
+        system ("pause");
+     }
+     else
+     {
+        displayBalance(beginningDate, endingDate);
+     }
+    }
+      else
+  {
+   cout << "Provided date is incorrect, try again." << endl;
+   system ("pause");
+  }
+
+  }
+
+  else
+  {
+   cout << "Provided date is incorrect, try again." << endl;
+   system ("pause");
+  }
+
+
+
+
+}

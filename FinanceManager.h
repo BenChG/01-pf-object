@@ -25,7 +25,7 @@ class FinanceManager
     string currentDate;
     string choosenDate;
     int beginningDate;
-    int endDate;
+    int endingDate;
     int sumOfIncomes;
     int sumOfExpenses;
 
@@ -46,7 +46,7 @@ public:
         currentDate="";
         choosenDate="";
         beginningDate=0;
-        endDate=0;
+        endingDate=0;
         sumOfIncomes=0;
         sumOfExpenses=0;
     };
@@ -55,11 +55,12 @@ public:
     Expense addNewExpense();
     void balanceOfCurrentMonth();
     void balanceOfPreviousMonth();
-    void displayBalance(int beginningDate, int endDate);
-    void showTheIncomes(Income income, int beginningDate, int endDate);
-    void showTheExpenses(Expense expense, int beginningDate, int endDate);
-    int addIncomeFromSelectedPeriod(Income income, int beginningDate, int endDate);
-    int addExpenseFromSelectedPeriod(Expense expense, int beginningDate, int endDate);
+    void balanceOfSelectedPeriod();
+    void displayBalance(int beginningDate, int endingDate);
+    void showTheIncomes(Income income, int beginningDate, int endingDate);
+    void showTheExpenses(Expense expense, int beginningDate, int endingDate);
+    int addIncomeFromSelectedPeriod(Income income, int beginningDate, int endingDate);
+    int addExpenseFromSelectedPeriod(Expense expense, int beginningDate, int endingDate);
 };
 
 #endif

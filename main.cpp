@@ -65,7 +65,7 @@ int main()
             case '5':
                 cout << "Option 5 selected" << endl;
                 system ("pause");
-                //personalFinances.balanceOfSelectedPeriod();
+                personalFinances.balanceOfSelectedPeriod();
                 break;
 
             case '6':
