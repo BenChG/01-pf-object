@@ -39,7 +39,7 @@ int PersonalFinances::logInUser()
 {
     userManager.logInUser();
 
-      financeManager = new FinanceManager (NAME_OF_FILE_WITH_INCOMES, NAME_OF_FILE_WITH_EXPENSES, userManager.downloadIdOfLoggedInUser());
+    financeManager = new FinanceManager (NAME_OF_FILE_WITH_INCOMES, NAME_OF_FILE_WITH_EXPENSES, userManager.downloadIdOfLoggedInUser());
 }
 
 int PersonalFinances::logOffUser()

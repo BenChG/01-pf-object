@@ -51,6 +51,3 @@ float Expense::downloadExpenseAmount()
 {
     return expenseAmount;
 }
-
-
-
