@@ -59,7 +59,7 @@ int main()
             case '4':
                 cout << "Option 4 selected" << endl;
                 system ("pause");
-                //personalFinances.balanceOfPreviousMonth();
+                personalFinances.balanceOfPreviousMonth();
                 break;
 
             case '5':

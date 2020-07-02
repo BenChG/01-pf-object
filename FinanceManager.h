@@ -19,8 +19,13 @@ class FinanceManager
     Income income;
     Expense expense;
     FilesForFinanceManager filesForFinanceManager;
-    // AdjunctiveMethods adjunctiveMethods;
-    // DateMethods dateMethods;
+    DateMethods dateMethods;
+    AdjunctiveMethods adjunctiveMethods;
+
+    string currentDate;
+    string choosenDate;
+    int beginningDate;
+    int endDate;
     int sumOfIncomes;
     int sumOfExpenses;
 
@@ -38,6 +43,10 @@ public:
         string isDateCorrect = "NO";
         incomes=filesForFinanceManager.loadIncomesFromTheFile();
         expenses=filesForFinanceManager.loadExpensesFromTheFile();
+        currentDate="";
+        choosenDate="";
+        beginningDate=0;
+        endDate=0;
         sumOfIncomes=0;
         sumOfExpenses=0;
     };
@@ -45,6 +54,7 @@ public:
     Income addNewIncome();
     Expense addNewExpense();
     void balanceOfCurrentMonth();
+    void balanceOfPreviousMonth();
     void displayBalance(int beginningDate, int endDate);
     void showTheIncomes(Income income, int beginningDate, int endDate);
     void showTheExpenses(Expense expense, int beginningDate, int endDate);

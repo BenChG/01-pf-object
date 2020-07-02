@@ -2,9 +2,6 @@
 
 Income FinanceManager::addNewIncome()
 {
-    Income income;
-    AdjunctiveMethods adjunctiveMethods;
-    DateMethods dateMethods;
     string incomeName;
     string isAmountCorrect;
     string date;
@@ -74,10 +71,6 @@ Income FinanceManager::addNewIncome()
 
 Expense FinanceManager::addNewExpense()
 {
-    Expense expense;
-    AdjunctiveMethods adjunctiveMethods;
-    DateMethods dateMethods;
-
     string expenseName;
     string isAmountCorrect;
     string date;
@@ -232,10 +225,21 @@ void FinanceManager::displayBalance(int beginningDate, int endDate)
 
 void FinanceManager::balanceOfCurrentMonth()
 {
-    DateMethods dateMethods;
-    string currentDate = dateMethods.loadCurrentDate();
-    int beginningDate = dateMethods.downloadBeginningDate(currentDate);
-    int endDate = dateMethods.downloadEndDate(currentDate);
+    currentDate = dateMethods.loadCurrentDate();
+    beginningDate = dateMethods.downloadBeginningDate(choosenDate);
+    endDate = dateMethods.downloadEndDate(choosenDate);
 
     displayBalance(beginningDate, endDate);
 }
+
+void FinanceManager::balanceOfPreviousMonth()
+{
+    currentDate = dateMethods.loadCurrentDate();
+    choosenDate = dateMethods.changeDateIntoPreviousMonth(currentDate);
+
+    beginningDate = dateMethods.downloadBeginningDate(choosenDate);
+    endDate = dateMethods.downloadEndDate(choosenDate);
+
+    displayBalance(beginningDate, endDate);
+}
+

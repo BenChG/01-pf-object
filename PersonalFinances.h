@@ -39,7 +39,7 @@ public:
     void addNewExpense();
     void changeThePassword();
     void balanceOfCurrentMonth();
-    void showTheBalance(Income income);
+    void balanceOfPreviousMonth();
     int logInUser();
     int logOffUser();
 };
