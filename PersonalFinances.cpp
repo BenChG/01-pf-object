@@ -40,6 +40,11 @@ void PersonalFinances::balanceOfPreviousMonth()
   financeManager->balanceOfPreviousMonth();
 }
 
+void PersonalFinances::balanceOfSelectedPeriod()
+{
+  financeManager->balanceOfSelectedPeriod();
+}
+
 int PersonalFinances::logInUser()
 {
     userManager.logInUser();

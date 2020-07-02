@@ -40,6 +40,7 @@ public:
     void changeThePassword();
     void balanceOfCurrentMonth();
     void balanceOfPreviousMonth();
+    void balanceOfSelectedPeriod();
     int logInUser();
     int logOffUser();
 };
