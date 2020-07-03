@@ -46,7 +46,7 @@ string DateMethods::checkIfDayIsValid(int year, int month, int day)
             daysInTheMonth = 29;
         else
         {
-            cout << "Biezacy miesiac ma 28 dni" << endl;
+            daysInTheMonth = 28;
         }
     }
 
@@ -235,13 +235,30 @@ int DateMethods::downloadBeginningDate(string date)
     return beginningDate;
 }
 
-int DateMethods::downloadEndDate(string date)
+int DateMethods::downloadEndingDate(string date)
 {
     int endDate;
     string dateWithoutDashes = "";
     string year = date.substr(0,4);
     string month = date.substr(5,2);
     string day = "31";
+
+    if (month=="04"||month=="06"||month=="09"||month=="11")
+    {
+     day="30";
+    }
+
+    else if (month=="02")
+    {
+     int yearInNumbers = adjunctiveMethods.changeStringIntoInt(year);
+        if (yearInNumbers % 4 == 0 && yearInNumbers % 100 != 0 || yearInNumbers % 400 == 0)
+            day = "29";
+        else
+        {
+            day = "28";
+        }
+    }
+
 
     dateWithoutDashes = year + month + day;
 

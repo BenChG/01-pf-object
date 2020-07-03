@@ -3,7 +3,6 @@
 
 #include <iomanip>
 #include <iostream>
-#include <algorithm>
 #include <vector>
 #include <iterator>
 #include "Income.h"
@@ -26,13 +25,17 @@ class FinanceManager
     string choosenDate;
     int beginningDate;
     int endingDate;
-    int sumOfIncomes;
-    int sumOfExpenses;
 
     vector <Income> incomes;
     vector <Expense> expenses;
     string isDateCorrect;
     const int ID_OF_LOGGED_IN_USER;
+
+    void displayBalance(int beginningDate, int endingDate);
+    void showTheIncomes(Income income, int beginningDate, int endingDate);
+    void showTheExpenses(Expense expense, int beginningDate, int endingDate);
+    int addIncomeFromSelectedPeriod(Income income, int beginningDate, int endingDate);
+    int addExpenseFromSelectedPeriod(Expense expense, int beginningDate, int endingDate);
 
 public:
 
@@ -47,8 +50,6 @@ public:
         choosenDate="";
         beginningDate=0;
         endingDate=0;
-        sumOfIncomes=0;
-        sumOfExpenses=0;
     };
 
     Income addNewIncome();
@@ -56,11 +57,6 @@ public:
     void balanceOfCurrentMonth();
     void balanceOfPreviousMonth();
     void balanceOfSelectedPeriod();
-    void displayBalance(int beginningDate, int endingDate);
-    void showTheIncomes(Income income, int beginningDate, int endingDate);
-    void showTheExpenses(Expense expense, int beginningDate, int endingDate);
-    int addIncomeFromSelectedPeriod(Income income, int beginningDate, int endingDate);
-    int addExpenseFromSelectedPeriod(Expense expense, int beginningDate, int endingDate);
 };
 
 #endif

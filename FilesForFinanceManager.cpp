@@ -84,7 +84,7 @@ vector <Income> FilesForFinanceManager::loadIncomesFromTheFile ()
         xml.OutOfElem();
 
         income.setIncomeId(incomeId);
-        income.setIncomeId(userId);
+        income.setUserId(userId);
         income.setIncomeDate(incomeDate);
         income.setIncomeName(incomeName);
         income.setIncomeAmount(incomeAmount);
@@ -118,7 +118,7 @@ vector <Expense> FilesForFinanceManager::loadExpensesFromTheFile ()
         xml.OutOfElem();
 
         expense.setExpenseId(expenseId);
-        expense.setExpenseId(userId);
+        expense.setUserId(userId);
         expense.setExpenseDate(expenseDate);
         expense.setExpenseName(expenseName);
         expense.setExpenseAmount(expenseAmount);

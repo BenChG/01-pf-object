@@ -22,7 +22,7 @@ public:
     string changeDateIntoPreviousMonth(string date);
     int changeDateIntoNumericFormat(string date);
     int downloadBeginningDate(string date);
-    int downloadEndDate(string date);
+    int downloadEndingDate(string date);
 };
 
 #endif

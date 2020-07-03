@@ -31,6 +31,7 @@ User UserManager::userRegistration()
     users.push_back(user);
 
     filesWithUsers.addNewUserToTheFileWithUsers(userId, userLogin, userPassword, userFirstName, userLastName);
+    users=filesWithUsers.loadUsersFromTheFile();
 
     return user;
 }
@@ -70,10 +71,6 @@ int UserManager::findUser(User user, string login)
 
 int UserManager::logInUser()
 {
-    idOfLoggedInUser=1;
-    return idOfLoggedInUser;
-
-    /*
     if (!users.empty())
     {
         string login;
@@ -103,7 +100,6 @@ int UserManager::logInUser()
         system ("pause");
         return idOfLoggedInUser;
     }
-    */
 }
 
 int UserManager::logOffUser()

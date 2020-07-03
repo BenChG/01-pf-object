@@ -24,7 +24,7 @@ public:
         : filesWithUsers(nameOfFileWithUsers)
     {
         users=filesWithUsers.loadUsersFromTheFile();
-        //idOfLoggedInUser=0;
+        idOfLoggedInUser=0;
     };
 
     User userRegistration();

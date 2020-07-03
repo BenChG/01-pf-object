@@ -140,7 +140,8 @@ Expense FinanceManager::addNewExpense()
 int FinanceManager::addIncomeFromSelectedPeriod(Income income, int beginningDate, int endingDate)
 {
     int incomeDate=income.downloadIncomeDate();
-    if ((incomeDate>=beginningDate) && (incomeDate<=endingDate))
+    int userId=income.downloadUserId();
+    if ((incomeDate>=beginningDate) && (incomeDate<=endingDate)&&(userId==ID_OF_LOGGED_IN_USER))
     {
         return income.downloadIncomeAmount();
     }
@@ -150,7 +151,8 @@ int FinanceManager::addIncomeFromSelectedPeriod(Income income, int beginningDate
 int FinanceManager::addExpenseFromSelectedPeriod(Expense expense, int beginningDate, int endingDate)
 {
     int expenseDate=expense.downloadExpenseDate();
-    if ((expenseDate>=beginningDate) && (expenseDate<=endingDate))
+    int userId=expense.downloadUserId();
+    if ((expenseDate>=beginningDate) && (expenseDate<=endingDate)&&(userId==ID_OF_LOGGED_IN_USER))
     {
         return expense.downloadExpenseAmount();
     }
@@ -160,8 +162,9 @@ int FinanceManager::addExpenseFromSelectedPeriod(Expense expense, int beginningD
 void FinanceManager::showTheIncomes(Income income, int beginningDate, int endingDate)
 {
     int incomeDate=income.downloadIncomeDate();
+    int userId=income.downloadUserId();
 
-    if ((incomeDate>=beginningDate) && (incomeDate<=endingDate))
+    if ((incomeDate>=beginningDate) && (incomeDate<=endingDate)&&(userId==ID_OF_LOGGED_IN_USER))
     {
         cout << "Id: " << income.downloadIncomeId() << endl;
         cout << "Date: " <<income.downloadIncomeDate() << endl;
@@ -174,7 +177,9 @@ void FinanceManager::showTheIncomes(Income income, int beginningDate, int ending
 void FinanceManager::showTheExpenses(Expense expense, int beginningDate, int endingDate)
 {
     int expenseDate=expense.downloadExpenseDate();
-    if ((expenseDate>=beginningDate) && (expenseDate<=endingDate))
+    int userId=expense.downloadUserId();
+
+    if ((expenseDate>=beginningDate) && (expenseDate<=endingDate)&&(userId==ID_OF_LOGGED_IN_USER))
     {
         cout << "Id: " << expense.downloadExpenseId() << endl;
         cout << "Date: " <<  expense.downloadExpenseDate() << endl;
@@ -196,6 +201,9 @@ bool sortExpensesByDate(Expense &p1, Expense &p2)
 
 void FinanceManager::displayBalance(int beginningDate, int endingDate)
 {
+ int sumOfIncomes = 0;
+ int sumOfExpenses = 0;
+
     sort (incomes.begin(), incomes.end(), sortIncomesByDate);
 
     cout << "----------LIST OF INCOMES----------" << endl;
@@ -226,8 +234,8 @@ void FinanceManager::displayBalance(int beginningDate, int endingDate)
 void FinanceManager::balanceOfCurrentMonth()
 {
     currentDate = dateMethods.loadCurrentDate();
-    beginningDate = dateMethods.downloadBeginningDate(choosenDate);
-    endingDate = dateMethods.downloadEndDate(choosenDate);
+    beginningDate = dateMethods.downloadBeginningDate(currentDate);
+    endingDate = dateMethods.downloadEndingDate(currentDate);
 
     displayBalance(beginningDate, endingDate);
 }
@@ -236,59 +244,56 @@ void FinanceManager::balanceOfPreviousMonth()
 {
     currentDate = dateMethods.loadCurrentDate();
     choosenDate = dateMethods.changeDateIntoPreviousMonth(currentDate);
-
     beginningDate = dateMethods.downloadBeginningDate(choosenDate);
-    endingDate = dateMethods.downloadEndDate(choosenDate);
+    endingDate = dateMethods.downloadEndingDate(choosenDate);
 
     displayBalance(beginningDate, endingDate);
 }
 
-
 void FinanceManager::balanceOfSelectedPeriod()
 {
- string firstDate;
- string lastDate;
-  cout << "Please provide beginning date (yyyy-mm-dd): ";
-  cin >> firstDate;
+    string firstDate;
+    string lastDate;
+    cout << "Please provide beginning date (yyyy-mm-dd): ";
+    cin >> firstDate;
 
-  isDateCorrect=dateMethods.checkIfDateIsCorrect(firstDate);
-
-  if (isDateCorrect=="YES")
-  {
-    cout << "Please provide ending date (yyyy-mm-dd): ";
-    cin >> lastDate;
-    isDateCorrect=dateMethods.checkIfDateIsCorrect(lastDate);
+    isDateCorrect=dateMethods.checkIfDateIsCorrect(firstDate);
 
     if (isDateCorrect=="YES")
     {
+        cout << "Please provide ending date (yyyy-mm-dd): ";
+        cin >> lastDate;
+        isDateCorrect=dateMethods.checkIfDateIsCorrect(lastDate);
 
-     beginningDate=dateMethods.changeDateIntoNumericFormat(firstDate);
-     endingDate=dateMethods.changeDateIntoNumericFormat(lastDate);
-     if (beginningDate>endingDate)
-     {
-        cout << "Provided values are incorrect." << endl;
-        cout << "Beginning date is higher, than ending date." << endl;
-        cout << "Try again." << endl;
-        system ("pause");
-     }
-     else
-     {
-        displayBalance(beginningDate, endingDate);
-     }
+        if (isDateCorrect=="YES")
+        {
+
+            beginningDate=dateMethods.changeDateIntoNumericFormat(firstDate);
+            endingDate=dateMethods.changeDateIntoNumericFormat(lastDate);
+            if (beginningDate>endingDate)
+            {
+                cout << "Provided values are incorrect." << endl;
+                cout << "Beginning date is higher, than ending date." << endl;
+                cout << "Try again." << endl;
+                system ("pause");
+            }
+            else
+            {
+                displayBalance(beginningDate, endingDate);
+            }
+        }
+        else
+        {
+            cout << "Provided date is incorrect, try again." << endl;
+            system ("pause");
+        }
     }
-      else
-  {
-   cout << "Provided date is incorrect, try again." << endl;
-   system ("pause");
-  }
 
-  }
-
-  else
-  {
-   cout << "Provided date is incorrect, try again." << endl;
-   system ("pause");
-  }
+    else
+    {
+        cout << "Provided date is incorrect, try again." << endl;
+        system ("pause");
+    }
 
 
 
