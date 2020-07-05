@@ -60,9 +60,9 @@ int UserManager::findUser(User user, string login)
 
         if (isPasswordCorrect=="NO")
         {
-            cout << "Password provided three times wrong, user could not be logged in!!!" << endl;
+            cout << "Password provided three times wrong, try again later!!!" << endl;
             system ("pause");
-            exit(0);
+            exit (0);
         }
     }
 
@@ -73,6 +73,7 @@ int UserManager::logInUser()
 {
     if (!users.empty())
     {
+        string isUserFound = "NO";
         string login;
         cout << "What is your login: ";
         cin >> login;
@@ -83,11 +84,13 @@ int UserManager::logInUser()
 
             if (idOfLoggedInUser!=0)
             {
+                isUserFound = "YES";
+                idOfLoggedInUser=downloadIdOfLoggedInUser();
                 return idOfLoggedInUser;
             }
         }
 
-        if (idOfLoggedInUser==0)
+        if(isUserFound=="NO")
         {
             cout << "User with provided login does not exist." << endl;
             system ("pause");
@@ -110,20 +113,29 @@ int UserManager::logOffUser()
 
 int UserManager::downloadIdOfLoggedInUser()
 {
- return idOfLoggedInUser;
+    return idOfLoggedInUser;
 }
 
 void UserManager::changeThePassword()
 {
     string newPassword;
+    string newPassword2;
     cout << "Please provide the new password: " << endl;
     cin >> newPassword;
+    cout << "Please repeat the new password: " << endl;
+    cin >> newPassword2;
 
-    cout << "idOfLoggedInUser: " << idOfLoggedInUser << endl;
-    cout << "newPassword" << newPassword << endl;
-    system ("pause");
+    if (newPassword==newPassword2)
+    {
+        cout << "Password for user " << idOfLoggedInUser << " is changed." << endl;
+        system ("pause");
+        filesWithUsers.saveNewPasswordInTheFileWithUsers(newPassword, idOfLoggedInUser);
+        users=filesWithUsers.loadUsersFromTheFile();
+    }
 
-    filesWithUsers.saveNewPasswordInTheFileWithUsers(newPassword, idOfLoggedInUser);
-
-    users=filesWithUsers.loadUsersFromTheFile();
+    else
+    {
+        cout << "Repeated password does not match the first one, try again later." << endl;
+        system ("pause");
+    }
 }

@@ -105,7 +105,7 @@ vector <Expense> FilesForFinanceManager::loadExpensesFromTheFile ()
     while (xml.FindElem("Expense") )
     {
         xml.IntoElem();
-        xml.FindElem( "incomeId" );
+        xml.FindElem( "expenseId" );
         int expenseId = adjunctiveMethods.changeStringIntoInt(xml.GetData());
         xml.FindElem( "userId" );
         int userId = adjunctiveMethods.changeStringIntoInt(xml.GetData());

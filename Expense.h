@@ -2,10 +2,6 @@
 #define EXPENSE_H
 
 #include <iostream>
-#include <iostream>
-#include <algorithm>
-#include <vector>
-#include <iterator>
 
 using namespace std;
 

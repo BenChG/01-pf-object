@@ -5,6 +5,7 @@
 #include <iostream>
 #include <vector>
 #include <iterator>
+#include <algorithm>
 #include "Income.h"
 #include "Expense.h"
 #include "FilesForFinanceManager.h"

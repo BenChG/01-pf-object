@@ -8,8 +8,6 @@ Income FinanceManager::addNewIncome()
     float incomeAmount;
     int incomeId=incomes.size()+1;
     int userId=ID_OF_LOGGED_IN_USER;
-    cout << "userId" << userId << endl;
-    system ("pause");
     int incomeDate;
     char choice = adjunctiveMethods.chooseDateVariant();
 
@@ -51,7 +49,7 @@ Income FinanceManager::addNewIncome()
             incomeAmount = adjunctiveMethods.changeStringIntoFloat(isAmountCorrect);
 
             income.setIncomeId(incomeId);
-            income.setIncomeId(userId);
+            income.setUserId(userId);
             income.setIncomeDate(incomeDate);
             income.setIncomeName(incomeName);
             income.setIncomeAmount(incomeAmount);
@@ -66,6 +64,9 @@ Income FinanceManager::addNewIncome()
         cout << "Date is wrong !!!" << endl;
         system ("pause");
     }
+
+    incomes=filesForFinanceManager.loadIncomesFromTheFile();
+
     return income;
 }
 
@@ -118,15 +119,13 @@ Expense FinanceManager::addNewExpense()
             expenseAmount = adjunctiveMethods.changeStringIntoFloat(isAmountCorrect);
 
             expense.setExpenseId(expenseId);
-            expense.setExpenseId(userId);
+            expense.setUserId(userId);
             expense.setExpenseDate(expenseDate);
             expense.setExpenseName(expenseName);
             expense.setExpenseAmount(expenseAmount);
             expenses.push_back(expense);
 
             filesForFinanceManager.addNewExpenseToTheFileWithExpenses(expenseId, userId, expenseDate, expenseName, expenseAmount);
-
-            return expense;
         }
     }
     else
@@ -135,6 +134,10 @@ Expense FinanceManager::addNewExpense()
         cout << "Date is wrong !!!" << endl;
         system ("pause");
     }
+
+    expenses=filesForFinanceManager.loadExpensesFromTheFile();
+
+    return expense;
 }
 
 int FinanceManager::addIncomeFromSelectedPeriod(Income income, int beginningDate, int endingDate)
@@ -201,8 +204,8 @@ bool sortExpensesByDate(Expense &p1, Expense &p2)
 
 void FinanceManager::displayBalance(int beginningDate, int endingDate)
 {
- int sumOfIncomes = 0;
- int sumOfExpenses = 0;
+    int sumOfIncomes = 0;
+    int sumOfExpenses = 0;
 
     sort (incomes.begin(), incomes.end(), sortIncomesByDate);
 
@@ -225,7 +228,7 @@ void FinanceManager::displayBalance(int beginningDate, int endingDate)
         sumOfExpenses=sumOfExpenses+addExpenseFromSelectedPeriod(*itr, beginningDate, endingDate);
     }
 
-    cout << "Sum of incomes : " << sumOfIncomes << endl;
+    cout << endl << "Sum of incomes : " << sumOfIncomes << endl;
     cout << "Sum of expenses: " << sumOfExpenses << endl;
     cout << "Balance of selected period: " << sumOfIncomes + sumOfExpenses << endl;
     system ("pause");

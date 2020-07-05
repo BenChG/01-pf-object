@@ -90,8 +90,6 @@ string AdjunctiveMethods::verifyIfAmountIsCorrect()
 
     for (int i=0; i<length; i++)
     {
-        cout << dataToBeVeryfied [i] << endl;
-
         if ((dataToBeVeryfied[i] == char(44)) && (isDotFound == "NO"))
         {
             dataToBeVeryfied[i] = char(46);

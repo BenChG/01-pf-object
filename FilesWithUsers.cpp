@@ -37,12 +37,11 @@ void FilesWithUsers::saveNewPasswordInTheFileWithUsers (string newPassword, int 
     xml.FindElem();
     xml.IntoElem();
 
-    while (xml.FindElem("User") )
+    while (xml.FindElem("User"))
     {
         xml.IntoElem();
         xml.FindElem( "Id" );
         int userId = adjunctiveMethods.changeStringIntoInt(xml.GetData());
-        cout << "userId" << userId << endl;
         if (userId == idOfLoggedInUser)
         {
             xml.FindElem( "Password" );

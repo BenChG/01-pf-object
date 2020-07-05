@@ -37,4 +37,5 @@ public:
     float downloadIncomeAmount();
 
 };
+
 #endif

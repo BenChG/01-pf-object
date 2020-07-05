@@ -22,7 +22,8 @@ int main()
                 break;
 
             case '2':
-                idOfLoggedInUser=personalFinances.logInUser();
+                personalFinances.logInUser();
+                idOfLoggedInUser=personalFinances.downloadIdOfLoggedInUser();
                 break;
 
             case '9':

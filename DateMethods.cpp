@@ -259,7 +259,6 @@ int DateMethods::downloadEndingDate(string date)
         }
     }
 
-
     dateWithoutDashes = year + month + day;
 
     endDate = adjunctiveMethods.changeStringIntoInt(dateWithoutDashes);

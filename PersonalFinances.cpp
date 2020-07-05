@@ -56,3 +56,9 @@ int PersonalFinances::logOffUser()
 {
     userManager.logOffUser();
 }
+
+int PersonalFinances::downloadIdOfLoggedInUser()
+{
+    userManager.downloadIdOfLoggedInUser();
+}
+
