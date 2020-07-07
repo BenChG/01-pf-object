@@ -30,11 +30,11 @@ class Expense
     void setExpenseName (string newExpenseName);
     void setExpenseAmount(float newExpenseAmount);
 
-    int downloadExpenseId();
-    int downloadUserId();
-    int downloadExpenseDate();
-    string downloadExpenseName();
-    float downloadExpenseAmount();
+    int getExpenseId();
+    int getUserId();
+    int getExpenseDate();
+    string getExpenseName();
+    float getExpenseAmount();
 };
 
 #endif

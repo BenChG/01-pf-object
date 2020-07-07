@@ -26,27 +26,27 @@ void User::setUserLastName (string newUserLastName)
     userLastName = newUserLastName;
 }
 
-int User::downloadUserId()
+int User::getUserId()
 {
     return userId;
 }
 
-string User::downloadUserLogin()
+string User::getUserLogin()
 {
     return userLogin;
 }
 
-string User::downloadUserPassword()
+string User::getUserPassword()
 {
     return userPassword;
 }
 
-string User::downloadUserFirstName()
+string User::getUserFirstName()
 {
     return userFirstName;
 }
 
-string User::downloadUserLastName()
+string User::getUserLastName()
 {
     return userLastName;
 }

@@ -21,8 +21,8 @@ public:
     string loadCurrentDate();
     string changeDateIntoPreviousMonth(string date);
     int changeDateIntoNumericFormat(string date);
-    int downloadBeginningDate(string date);
-    int downloadEndingDate(string date);
+    int getBeginningDate(string date);
+    int getEndingDate(string date);
 };
 
 #endif

@@ -40,7 +40,7 @@ public:
     void balanceOfCurrentMonth();
     void balanceOfPreviousMonth();
     void balanceOfSelectedPeriod();
-    int downloadIdOfLoggedInUser();
+    int getIdOfLoggedInUser();
     int logInUser();
     int logOffUser();
 };

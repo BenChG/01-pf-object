@@ -30,11 +30,11 @@ public:
     void setIncomeName (string newIncomeName);
     void setIncomeAmount(float newIncomeAmount);
 
-    int downloadIncomeId();
-    int downloadUserId();
-    int downloadIncomeDate();
-    string downloadIncomeName();
-    float downloadIncomeAmount();
+    int getIncomeId();
+    int getUserId();
+    int getIncomeDate();
+    string getIncomeName();
+    float getIncomeAmount();
 
 };
 

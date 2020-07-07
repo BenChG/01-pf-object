@@ -41,19 +41,19 @@ int UserManager::findUser(User user, string login)
     string password;
     string isPasswordCorrect="NO";
 
-    if (user.downloadUserLogin() == login)
+    if (user.getUserLogin() == login)
     {
         for (int i = 0; i < 3; i++)
         {
             cout << "What is your password: ";
             cin >> password;
-            if (user.downloadUserPassword() == password)
+            if (user.getUserPassword() == password)
             {
                 cout << "You are logged in!" << endl;
                 system ("pause");
 
                 isPasswordCorrect = "YES";
-                idOfLoggedInUser=user.downloadUserId();
+                idOfLoggedInUser=user.getUserId();
                 i=2;
             }
         }
@@ -85,7 +85,7 @@ int UserManager::logInUser()
             if (idOfLoggedInUser!=0)
             {
                 isUserFound = "YES";
-                idOfLoggedInUser=downloadIdOfLoggedInUser();
+                idOfLoggedInUser=getIdOfLoggedInUser();
                 return idOfLoggedInUser;
             }
         }
@@ -111,7 +111,7 @@ int UserManager::logOffUser()
     return idOfLoggedInUser;
 }
 
-int UserManager::downloadIdOfLoggedInUser()
+int UserManager::getIdOfLoggedInUser()
 {
     return idOfLoggedInUser;
 }

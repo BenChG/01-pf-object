@@ -220,7 +220,7 @@ int DateMethods::changeDateIntoNumericFormat(string date)
     return incomeDate;
 }
 
-int DateMethods::downloadBeginningDate(string date)
+int DateMethods::getBeginningDate(string date)
 {
     int beginningDate;
     string dateWithoutDashes = "";
@@ -235,7 +235,7 @@ int DateMethods::downloadBeginningDate(string date)
     return beginningDate;
 }
 
-int DateMethods::downloadEndingDate(string date)
+int DateMethods::getEndingDate(string date)
 {
     int endDate;
     string dateWithoutDashes = "";

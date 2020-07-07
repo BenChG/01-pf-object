@@ -142,64 +142,64 @@ Expense FinanceManager::addNewExpense()
 
 int FinanceManager::addIncomeFromSelectedPeriod(Income income, int beginningDate, int endingDate)
 {
-    int incomeDate=income.downloadIncomeDate();
-    int userId=income.downloadUserId();
+    int incomeDate=income.getIncomeDate();
+    int userId=income.getUserId();
     if ((incomeDate>=beginningDate) && (incomeDate<=endingDate)&&(userId==ID_OF_LOGGED_IN_USER))
     {
-        return income.downloadIncomeAmount();
+        return income.getIncomeAmount();
     }
     return 0;
 }
 
 int FinanceManager::addExpenseFromSelectedPeriod(Expense expense, int beginningDate, int endingDate)
 {
-    int expenseDate=expense.downloadExpenseDate();
-    int userId=expense.downloadUserId();
+    int expenseDate=expense.getExpenseDate();
+    int userId=expense.getUserId();
     if ((expenseDate>=beginningDate) && (expenseDate<=endingDate)&&(userId==ID_OF_LOGGED_IN_USER))
     {
-        return expense.downloadExpenseAmount();
+        return expense.getExpenseAmount();
     }
     return 0;
 }
 
 void FinanceManager::showTheIncomes(Income income, int beginningDate, int endingDate)
 {
-    int incomeDate=income.downloadIncomeDate();
-    int userId=income.downloadUserId();
+    int incomeDate=income.getIncomeDate();
+    int userId=income.getUserId();
 
     if ((incomeDate>=beginningDate) && (incomeDate<=endingDate)&&(userId==ID_OF_LOGGED_IN_USER))
     {
-        cout << "Id: " << income.downloadIncomeId() << endl;
-        cout << "Date: " <<income.downloadIncomeDate() << endl;
-        cout << "Name: " <<income.downloadIncomeName() << endl;
-        cout << "Amount: " << setprecision(16) << income.downloadIncomeAmount() << endl << endl;
+        cout << "Id: " << income.getIncomeId() << endl;
+        cout << "Date: " <<income.getIncomeDate() << endl;
+        cout << "Name: " <<income.getIncomeName() << endl;
+        cout << "Amount: " << setprecision(16) << income.getIncomeAmount() << endl << endl;
         system ("pause");
     }
 }
 
 void FinanceManager::showTheExpenses(Expense expense, int beginningDate, int endingDate)
 {
-    int expenseDate=expense.downloadExpenseDate();
-    int userId=expense.downloadUserId();
+    int expenseDate=expense.getExpenseDate();
+    int userId=expense.getUserId();
 
     if ((expenseDate>=beginningDate) && (expenseDate<=endingDate)&&(userId==ID_OF_LOGGED_IN_USER))
     {
-        cout << "Id: " << expense.downloadExpenseId() << endl;
-        cout << "Date: " <<  expense.downloadExpenseDate() << endl;
-        cout << "Name: " <<  expense.downloadExpenseName() << endl;
-        cout << "Amount: " <<  setprecision(16) << expense.downloadExpenseAmount() << endl << endl;
+        cout << "Id: " << expense.getExpenseId() << endl;
+        cout << "Date: " <<  expense.getExpenseDate() << endl;
+        cout << "Name: " <<  expense.getExpenseName() << endl;
+        cout << "Amount: " <<  setprecision(16) << expense.getExpenseAmount() << endl << endl;
         system ("pause");
     }
 }
 
 bool sortIncomesByDate(Income &p1, Income &p2)
 {
-    return p1.downloadIncomeDate() < p2.downloadIncomeDate();
+    return p1.getIncomeDate() < p2.getIncomeDate();
 }
 
 bool sortExpensesByDate(Expense &p1, Expense &p2)
 {
-    return p1.downloadExpenseDate() < p2.downloadExpenseDate();
+    return p1.getExpenseDate() < p2.getExpenseDate();
 }
 
 void FinanceManager::displayBalance(int beginningDate, int endingDate)
@@ -237,8 +237,8 @@ void FinanceManager::displayBalance(int beginningDate, int endingDate)
 void FinanceManager::balanceOfCurrentMonth()
 {
     currentDate = dateMethods.loadCurrentDate();
-    beginningDate = dateMethods.downloadBeginningDate(currentDate);
-    endingDate = dateMethods.downloadEndingDate(currentDate);
+    beginningDate = dateMethods.getBeginningDate(currentDate);
+    endingDate = dateMethods.getEndingDate(currentDate);
 
     displayBalance(beginningDate, endingDate);
 }
@@ -247,8 +247,8 @@ void FinanceManager::balanceOfPreviousMonth()
 {
     currentDate = dateMethods.loadCurrentDate();
     choosenDate = dateMethods.changeDateIntoPreviousMonth(currentDate);
-    beginningDate = dateMethods.downloadBeginningDate(choosenDate);
-    endingDate = dateMethods.downloadEndingDate(choosenDate);
+    beginningDate = dateMethods.getBeginningDate(choosenDate);
+    endingDate = dateMethods.getEndingDate(choosenDate);
 
     displayBalance(beginningDate, endingDate);
 }

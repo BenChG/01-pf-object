@@ -30,11 +30,11 @@ public:
     void setUserLogin (string newUserLogin);
     void setUserPassword (string newUserPassword);
 
-    int downloadUserId();
-    string downloadUserFirstName();
-    string downloadUserLastName();
-    string downloadUserLogin();
-    string downloadUserPassword();
+    int getUserId();
+    string getUserFirstName();
+    string getUserLastName();
+    string getUserLogin();
+    string getUserPassword();
 };
 
 #endif

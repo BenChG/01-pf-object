@@ -30,7 +30,7 @@ public:
     User userRegistration();
     int logInUser();
     int logOffUser();
-    int downloadIdOfLoggedInUser();
+    int getIdOfLoggedInUser();
     void changeThePassword();
 };
 

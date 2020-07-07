@@ -27,27 +27,27 @@ void Expense::setExpenseAmount (float newExpenseAmount)
     expenseAmount = -newExpenseAmount;
 }
 
-int Expense::downloadExpenseId()
+int Expense::getExpenseId()
 {
     return expenseId;
 }
 
-int Expense::downloadUserId()
+int Expense::getUserId()
 {
     return userId;
 }
 
-int Expense::downloadExpenseDate()
+int Expense::getExpenseDate()
 {
     return expenseDate;
 }
 
-string Expense::downloadExpenseName()
+string Expense::getExpenseName()
 {
     return expenseName;
 }
 
-float Expense::downloadExpenseAmount()
+float Expense::getExpenseAmount()
 {
     return expenseAmount;
 }

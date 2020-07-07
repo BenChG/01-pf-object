@@ -27,27 +27,27 @@ void Income::setIncomeAmount (float newIncomeAmount)
     incomeAmount = newIncomeAmount;
 }
 
-int Income::downloadIncomeId()
+int Income::getIncomeId()
 {
     return incomeId;
 }
 
-int Income::downloadUserId()
+int Income::getUserId()
 {
     return userId;
 }
 
-int Income::downloadIncomeDate()
+int Income::getIncomeDate()
 {
     return incomeDate;
 }
 
-string Income::downloadIncomeName()
+string Income::getIncomeName()
 {
     return incomeName;
 }
 
-float Income::downloadIncomeAmount()
+float Income::getIncomeAmount()
 {
     return incomeAmount;
 }
