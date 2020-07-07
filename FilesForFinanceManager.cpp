@@ -1,7 +1,9 @@
 #include "FilesForFinanceManager.h"
 
-void FilesForFinanceManager::addNewIncomeToTheFileWithIncomes(int incomeId, int userId, int incomeDate, string incomeName, float incomeAmount)
+void FilesForFinanceManager::addNewIncomeToTheFileWithIncomes(int incomeId, int userId, int incomeDate, string incomeName, string incomeAmount)
 {
+    cout << "incomeAmount" << incomeAmount << endl;
+
     CMarkup xml;
 
     bool fileExists = xml.Load(NAME_OF_FILE_WITH_INCOMES);
@@ -30,7 +32,7 @@ void FilesForFinanceManager::addNewIncomeToTheFileWithIncomes(int incomeId, int 
     system("pause");
 }
 
-void FilesForFinanceManager::addNewExpenseToTheFileWithExpenses(int expenseId, int userId, int expenseDate, string expenseName, float expenseAmount)
+void FilesForFinanceManager::addNewExpenseToTheFileWithExpenses(int expenseId, int userId, int expenseDate, string expenseName, string expenseAmount)
 {
     CMarkup xml;
 

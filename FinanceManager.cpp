@@ -55,7 +55,7 @@ Income FinanceManager::addNewIncome()
             income.setIncomeAmount(incomeAmount);
             incomes.push_back(income);
 
-            filesForFinanceManager.addNewIncomeToTheFileWithIncomes(incomeId, userId, incomeDate, incomeName, incomeAmount);
+            filesForFinanceManager.addNewIncomeToTheFileWithIncomes(incomeId, userId, incomeDate, incomeName, isAmountCorrect);
         }
     }
 
@@ -125,7 +125,7 @@ Expense FinanceManager::addNewExpense()
             expense.setExpenseAmount(expenseAmount);
             expenses.push_back(expense);
 
-            filesForFinanceManager.addNewExpenseToTheFileWithExpenses(expenseId, userId, expenseDate, expenseName, expenseAmount);
+            filesForFinanceManager.addNewExpenseToTheFileWithExpenses(expenseId, userId, expenseDate, expenseName, isAmountCorrect);
         }
     }
     else

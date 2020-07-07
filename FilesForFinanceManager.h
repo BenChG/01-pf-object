@@ -20,7 +20,7 @@ class FilesForFinanceManager
     const string NAME_OF_FILE_WITH_EXPENSES;
     vector <Income> incomes;
     vector <Expense> expenses;
-    vector<Expense>::iterator it;
+    vector <Expense>::iterator it;
     fstream file;
 
 public:
@@ -30,8 +30,8 @@ public:
           NAME_OF_FILE_WITH_EXPENSES (nameOfFileWithExpenses)
     {};
 
-    void addNewIncomeToTheFileWithIncomes(int incomeId, int userId, int incomeDate, string incomeName, float incomeAmount);
-    void addNewExpenseToTheFileWithExpenses(int expenseId, int userId, int expenseDate, string expenseName, float expenseAmount);
+    void addNewIncomeToTheFileWithIncomes(int incomeId, int userId, int incomeDate, string incomeName, string incomeAmount);
+    void addNewExpenseToTheFileWithExpenses(int expenseId, int userId, int expenseDate, string expenseName, string expenseAmount);
     vector <Income> loadIncomesFromTheFile();
     vector <Expense> loadExpensesFromTheFile();
 };

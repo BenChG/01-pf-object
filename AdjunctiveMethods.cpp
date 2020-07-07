@@ -108,8 +108,8 @@ string AdjunctiveMethods::verifyIfAmountIsCorrect()
                 return "NO";
             }
         }
-        return dataToBeVeryfied;
     }
+    return dataToBeVeryfied;
 }
 int AdjunctiveMethods::changeStringIntoInt(string text)
 {
