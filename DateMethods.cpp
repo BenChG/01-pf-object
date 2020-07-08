@@ -2,28 +2,14 @@
 
 string DateMethods::checkIfYearIsValid(int year, int currentYear)
 {
-    if (1999<year && year<=currentYear)
-    {
-        return "YES";
-    }
-    else
-    {
-        return "NO";
-    }
+    return (1999<year && year<=currentYear)? "YES" : "NO";
 }
 
 string DateMethods::checkIfMonthIsValid(int year, int currentYear, int month, int currentMonth)
 {
     if (0<month && month <=12)
     {
-        if (year == currentYear && month>currentMonth)
-        {
-            return "NO";
-        }
-        else
-        {
-            return "YES";
-        }
+        return (year == currentYear && month>currentMonth)? "YES" : "NO";
     }
     else
     {
@@ -42,12 +28,7 @@ string DateMethods::checkIfDayIsValid(int year, int month, int day)
 
     else if (month==2)
     {
-        if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
-            daysInTheMonth = 29;
-        else
-        {
-            daysInTheMonth = 28;
-        }
+        daysInTheMonth =(year % 4 == 0 && year % 100 != 0 || year % 400 == 0)? 29 : 28;
     }
 
     else
@@ -55,26 +36,12 @@ string DateMethods::checkIfDayIsValid(int year, int month, int day)
         daysInTheMonth = 31;
     }
 
-    if (day<=daysInTheMonth)
-    {
-        return "YES";
-    }
-
-    else
-    {
-        return "NO";
-    }
+    return (day<=daysInTheMonth)? "YES" : "NO";
 }
 
 string DateMethods::checkIfSignIsValid(char sign)
 {
-    if (sign==char(45))
-        return "YES";
-
-    else
-    {
-        return "NO" ;
-    }
+    return (sign==char(45)) ? "YES" : "NO";
 }
 
 string DateMethods::checkIfDateIsCorrect(string date)
@@ -192,17 +159,7 @@ string DateMethods::changeDateIntoPreviousMonth(string date)
     year=adjunctiveMethods.changeIntIntoString(yearInNumbers);
     month=adjunctiveMethods.changeIntIntoString(monthInNumbers);
 
-    if (monthInNumbers<10)
-    {
-        previousMonthDate = year + "-" + "0" + month + "-" + day;
-    }
-
-    else
-    {
-         previousMonthDate = year + "-" + month + "-" + day;
-    }
-
-    return previousMonthDate;
+    return (monthInNumbers<10)? year + "-" + "0" + month + "-" + day : year + "-" + month + "-" + day;
 }
 
 int DateMethods::changeDateIntoNumericFormat(string date)
@@ -245,18 +202,14 @@ int DateMethods::getEndingDate(string date)
 
     if (month=="04"||month=="06"||month=="09"||month=="11")
     {
-     day="30";
+        day="30";
     }
 
     else if (month=="02")
     {
-     int yearInNumbers = adjunctiveMethods.changeStringIntoInt(year);
-        if (yearInNumbers % 4 == 0 && yearInNumbers % 100 != 0 || yearInNumbers % 400 == 0)
-            day = "29";
-        else
-        {
-            day = "28";
-        }
+        int yearInNumbers = adjunctiveMethods.changeStringIntoInt(year);
+
+        day = (yearInNumbers % 4 == 0 && yearInNumbers % 100 != 0 || yearInNumbers % 400 == 0) ? "29":"28";
     }
 
     dateWithoutDashes = year + month + day;
