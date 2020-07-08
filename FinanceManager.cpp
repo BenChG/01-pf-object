@@ -65,6 +65,7 @@ Income FinanceManager::addNewIncome()
         system ("pause");
     }
 
+
     incomes=filesForFinanceManager.loadIncomesFromTheFile();
 
     return income;

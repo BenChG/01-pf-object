@@ -2,8 +2,6 @@
 
 void FilesForFinanceManager::addNewIncomeToTheFileWithIncomes(int incomeId, int userId, int incomeDate, string incomeName, string incomeAmount)
 {
-    cout << "incomeAmount" << incomeAmount << endl;
-
     CMarkup xml;
 
     bool fileExists = xml.Load(NAME_OF_FILE_WITH_INCOMES);
@@ -64,6 +62,7 @@ void FilesForFinanceManager::addNewExpenseToTheFileWithExpenses(int expenseId, i
 
 vector <Income> FilesForFinanceManager::loadIncomesFromTheFile ()
 {
+    incomes.clear();
     CMarkup xml;
     bool fileExists = xml.Load( "incomes.xml" );
 
@@ -98,6 +97,7 @@ vector <Income> FilesForFinanceManager::loadIncomesFromTheFile ()
 
 vector <Expense> FilesForFinanceManager::loadExpensesFromTheFile ()
 {
+    expenses.clear();
     CMarkup xml;
     bool fileExists = xml.Load("expenses.xml" );
 
