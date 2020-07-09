@@ -7,9 +7,9 @@ string DateMethods::checkIfYearIsValid(int year, int currentYear)
 
 string DateMethods::checkIfMonthIsValid(int year, int currentYear, int month, int currentMonth)
 {
-    if (0<month && month <=12)
+      if (0<month && month <=12)
     {
-        return (year == currentYear && month>currentMonth)? "YES" : "NO";
+        return (year == currentYear && month>currentMonth)? "NO" : "YES";
     }
     else
     {

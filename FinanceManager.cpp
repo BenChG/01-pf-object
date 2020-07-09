@@ -11,61 +11,65 @@ Income FinanceManager::addNewIncome()
     int incomeDate;
     char choice = adjunctiveMethods.chooseDateVariant();
 
+    while ((choice!='1')&&(choice!='2'))
+    {
+        cout << "There is no such choice, try again." <<  endl;
+        system ("pause");
+        choice = adjunctiveMethods.chooseDateVariant();
+    }
+
     if (choice == '1')
     {
         date=dateMethods.loadCurrentDate();
         isDateCorrect="YES";
+        cout << "The current date is: " << date << endl;
+        system ("pause");
     }
 
     else if (choice == '2')
     {
+        cout << "Please provide the date: " << endl;
         date = adjunctiveMethods.loadLines();
         isDateCorrect=dateMethods.checkIfDateIsCorrect(date);
     }
 
-    else
+    while (isDateCorrect=="NO")
     {
-        cout << "Wrong choice, try again later" << endl;
-    }
-
-    if (isDateCorrect=="YES")
-    {
-        incomeDate=dateMethods.changeDateIntoNumericFormat(date);
-
-        cout << "Give me income name: " << endl;
-        incomeName = adjunctiveMethods.loadLines();
-
-        cout << "Give me income amount: " << endl;
-        isAmountCorrect = adjunctiveMethods.verifyIfAmountIsCorrect();
-
-        if (isAmountCorrect == "NO")
-        {
-            cout << "Amount provided is not a number, try again later" << endl;
-            system ("pause");
-        }
-
-        else
-        {
-            incomeAmount = adjunctiveMethods.changeStringIntoFloat(isAmountCorrect);
-
-            income.setIncomeId(incomeId);
-            income.setUserId(userId);
-            income.setIncomeDate(incomeDate);
-            income.setIncomeName(incomeName);
-            income.setIncomeAmount(incomeAmount);
-            incomes.push_back(income);
-
-            filesForFinanceManager.addNewIncomeToTheFileWithIncomes(incomeId, userId, incomeDate, incomeName, isAmountCorrect);
-        }
-    }
-
-    else
-    {
-        cout << "Date is wrong !!!" << endl;
+        cout << "Date is incorrect, try again!" << endl;
         system ("pause");
+        system ("cls");
+        date = adjunctiveMethods.loadLines();
+        isDateCorrect=dateMethods.checkIfDateIsCorrect(date);
     }
 
+    incomeDate=dateMethods.changeDateIntoNumericFormat(date);
 
+    cout << "Give me income name: ";
+    incomeName = adjunctiveMethods.loadLines();
+
+    cout << "Give me income amount: ";
+    isAmountCorrect = adjunctiveMethods.verifyIfAmountIsCorrect();
+
+    while (isAmountCorrect == "NO")
+    {
+        cout << "Amount provided is not a number, try again." << endl;
+        system ("pause");
+        system ("cls");
+
+        cout << "Give me income amount: ";
+        isAmountCorrect = adjunctiveMethods.verifyIfAmountIsCorrect();
+    }
+
+    incomeAmount = adjunctiveMethods.changeStringIntoFloat(isAmountCorrect);
+
+    income.setIncomeId(incomeId);
+    income.setUserId(userId);
+    income.setIncomeDate(incomeDate);
+    income.setIncomeName(incomeName);
+    income.setIncomeAmount(incomeAmount);
+    incomes.push_back(income);
+
+    filesForFinanceManager.addNewIncomeToTheFileWithIncomes(incomeId, userId, incomeDate, incomeName, isAmountCorrect);
     incomes=filesForFinanceManager.loadIncomesFromTheFile();
 
     return income;
@@ -82,60 +86,64 @@ Expense FinanceManager::addNewExpense()
     int expenseDate;
     char choice = adjunctiveMethods.chooseDateVariant();
 
+    while ((choice!='1')&&(choice!='2'))
+    {
+        cout << "There is no such choice, try again." <<  endl;
+        system ("pause");
+        choice = adjunctiveMethods.chooseDateVariant();
+    }
+
     if (choice == '1')
     {
         date=dateMethods.loadCurrentDate();
         isDateCorrect="YES";
+        cout << "The current date is: " << date << endl;
+        system ("pause");
     }
 
     else if (choice == '2')
     {
+        cout << "Please provide the date: " << endl;
         date = adjunctiveMethods.loadLines();
         isDateCorrect=dateMethods.checkIfDateIsCorrect(date);
     }
 
-    else
+    while (isDateCorrect=="NO")
     {
-        cout << "Wrong choice, try again later" << endl;
-    }
-
-    if (isDateCorrect=="YES")
-    {
-        expenseDate=dateMethods.changeDateIntoNumericFormat(date);
-
-        cout << "Give me expense name: " << endl;
-        expenseName = adjunctiveMethods.loadLines();
-
-        cout << "Give me expense amount: " << endl;
-        isAmountCorrect = adjunctiveMethods.verifyIfAmountIsCorrect();
-
-        if (isAmountCorrect == "NO")
-        {
-            cout << "Amount provided is not a number, try again later" << endl;
-            system ("pause");
-        }
-
-        else
-        {
-            expenseAmount = adjunctiveMethods.changeStringIntoFloat(isAmountCorrect);
-
-            expense.setExpenseId(expenseId);
-            expense.setUserId(userId);
-            expense.setExpenseDate(expenseDate);
-            expense.setExpenseName(expenseName);
-            expense.setExpenseAmount(expenseAmount);
-            expenses.push_back(expense);
-
-            filesForFinanceManager.addNewExpenseToTheFileWithExpenses(expenseId, userId, expenseDate, expenseName, isAmountCorrect);
-        }
-    }
-    else
-
-    {
-        cout << "Date is wrong !!!" << endl;
+        cout << "Date is incorrect, try again!" << endl;
         system ("pause");
+        date = adjunctiveMethods.loadLines();
+        isDateCorrect=dateMethods.checkIfDateIsCorrect(date);
     }
 
+    expenseDate=dateMethods.changeDateIntoNumericFormat(date);
+
+    cout << "Give me expense name: ";
+    expenseName = adjunctiveMethods.loadLines();
+
+    cout << "Give me expense amount: ";
+    isAmountCorrect = adjunctiveMethods.verifyIfAmountIsCorrect();
+
+    while (isAmountCorrect == "NO")
+    {
+        cout << "Amount provided is not a number, try again." << endl;
+        system ("pause");
+        system ("cls");
+
+        cout << "Give me income amount: ";
+        isAmountCorrect = adjunctiveMethods.verifyIfAmountIsCorrect();
+    }
+
+    expenseAmount = adjunctiveMethods.changeStringIntoFloat(isAmountCorrect);
+
+    expense.setExpenseId(expenseId);
+    expense.setUserId(userId);
+    expense.setExpenseDate(expenseDate);
+    expense.setExpenseName(expenseName);
+    expense.setExpenseAmount(expenseAmount);
+    expenses.push_back(expense);
+
+    filesForFinanceManager.addNewExpenseToTheFileWithExpenses(expenseId, userId, expenseDate, expenseName, isAmountCorrect);
     expenses=filesForFinanceManager.loadExpensesFromTheFile();
 
     return expense;
@@ -263,43 +271,42 @@ void FinanceManager::balanceOfSelectedPeriod()
 
     isDateCorrect=dateMethods.checkIfDateIsCorrect(firstDate);
 
-    if (isDateCorrect=="YES")
+    while  (isDateCorrect=="NO")
     {
+        cout << "Given date is incorrect, try again." << endl;
+        system ("pause");
+        system ("cls");
+        cout << "Please provide beginning date (yyyy-mm-dd): ";
+        cin >> firstDate;
+        isDateCorrect=dateMethods.checkIfDateIsCorrect(firstDate);
+    }
+
+    cout << "Please provide ending date (yyyy-mm-dd): ";
+    cin >> lastDate;
+    isDateCorrect=dateMethods.checkIfDateIsCorrect(lastDate);
+
+    while  (isDateCorrect=="NO")
+    {
+        cout << "Given date is incorrect, try again." << endl;
+        system ("pause");
+        system ("cls");
         cout << "Please provide ending date (yyyy-mm-dd): ";
         cin >> lastDate;
         isDateCorrect=dateMethods.checkIfDateIsCorrect(lastDate);
+    }
 
-        if (isDateCorrect=="YES")
-        {
+    beginningDate=dateMethods.changeDateIntoNumericFormat(firstDate);
+    endingDate=dateMethods.changeDateIntoNumericFormat(lastDate);
 
-            beginningDate=dateMethods.changeDateIntoNumericFormat(firstDate);
-            endingDate=dateMethods.changeDateIntoNumericFormat(lastDate);
-            if (beginningDate>endingDate)
-            {
-                cout << "Provided values are incorrect." << endl;
-                cout << "Beginning date is higher, than ending date." << endl;
-                cout << "Try again." << endl;
-                system ("pause");
-            }
-            else
-            {
-                displayBalance(beginningDate, endingDate);
-            }
-        }
-        else
-        {
-            cout << "Provided date is incorrect, try again." << endl;
-            system ("pause");
-        }
+    if (beginningDate>endingDate)
+    {
+        cout << "Beginning date is higher, than ending date." << endl;
+        cout << "Provided values are incorrect, try again later." << endl;
+        system ("pause");
     }
 
     else
     {
-        cout << "Provided date is incorrect, try again." << endl;
-        system ("pause");
+        displayBalance(beginningDate, endingDate);
     }
-
-
-
-
 }
