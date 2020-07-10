@@ -1,53 +1,54 @@
 #include "Expense.h"
 
+
 void Expense::setExpenseId(int newExpenseId)
 {
-    if (newExpenseId >= 0)
-        expenseId = newExpenseId;
+  transaction.setTransactionId(newExpenseId);
 }
 
 void Expense::setUserId(int newUserId)
 {
-    if (newUserId >= 0)
-        userId = newUserId;
+   transaction.setUserId(newUserId);
 }
 
 void Expense::setExpenseDate(int newExpenseDate)
 {
-    expenseDate = newExpenseDate;
+     transaction.setTransactionDate(newExpenseDate);
 }
 
 void Expense::setExpenseName (string newExpenseName)
 {
-    expenseName= newExpenseName;
+   transaction.setTransactionName(newExpenseName);
 }
 
 void Expense::setExpenseAmount (float newExpenseAmount)
 {
-    expenseAmount = -newExpenseAmount;
+      transaction.setTransactionAmount(newExpenseAmount);
 }
 
 int Expense::getExpenseId()
 {
-    return expenseId;
+    return transaction.getTransactionId();
 }
 
 int Expense::getUserId()
 {
-    return userId;
+    return transaction.getUserId();
 }
 
 int Expense::getExpenseDate()
 {
-    return expenseDate;
+    return transaction.getTransactionDate();
 }
 
 string Expense::getExpenseName()
 {
-    return expenseName;
+     return transaction.getTransactionName();
 }
 
 float Expense::getExpenseAmount()
 {
-    return expenseAmount;
+     return transaction.getTransactionAmount();
 }
+
+

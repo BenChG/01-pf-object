@@ -1,29 +1,16 @@
 #ifndef EXPENSE_H
 #define EXPENSE_H
 
+#include "Transaction.h"
 #include <iostream>
 
 using namespace std;
 
-class Expense
+class Expense: public Transaction
 {
-    int expenseId;
-    int userId;
-    int expenseDate;
-    string expenseName;
-    float expenseAmount;
+    Transaction transaction;
 
- public:
-
-    Expense (int expenseId=123, int userId=123, int expenseDate=20000101, string expenseName="Expense", float expenseAmount=123.45)
-    {
-        this->expenseId = expenseId;
-        this->userId = userId;
-        this->expenseDate = expenseDate;
-        this->expenseName = expenseName;
-        this->expenseAmount = expenseAmount;
-    }
-
+public:
     void setExpenseId(int newExpenseId);
     void setUserId(int newUserId);
     void setExpenseDate (int newExpenseDate);

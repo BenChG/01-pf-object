@@ -239,7 +239,7 @@ void FinanceManager::displayBalance(int beginningDate, int endingDate)
 
     cout << endl << "Sum of incomes : " << sumOfIncomes << endl;
     cout << "Sum of expenses: " << sumOfExpenses << endl;
-    cout << "Balance of selected period: " << sumOfIncomes + sumOfExpenses << endl;
+    cout << "Balance of selected period: " << sumOfIncomes - sumOfExpenses << endl;
     system ("pause");
 }
 

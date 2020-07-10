@@ -2,53 +2,52 @@
 
 void Income::setIncomeId(int newIncomeId)
 {
-    if (newIncomeId >= 0)
-        incomeId = newIncomeId;
+    transaction.setTransactionId(newIncomeId);
 }
 
 void Income::setUserId(int newUserId)
 {
-    if (newUserId >= 0)
-        userId = newUserId;
+    transaction.setUserId(newUserId);
 }
 
 void Income::setIncomeDate(int newIncomeDate)
 {
-    incomeDate = newIncomeDate;
+    transaction.setTransactionDate(newIncomeDate);
 }
 
 void Income::setIncomeName (string newIncomeName)
 {
-    incomeName= newIncomeName;
+    transaction.setTransactionName(newIncomeName);
 }
 
-void Income::setIncomeAmount (float newIncomeAmount)
-{
-    incomeAmount = newIncomeAmount;
-}
+    void Income::setIncomeAmount (float newIncomeAmount)
+    {
+        transaction.setTransactionAmount(newIncomeAmount);
+    }
 
-int Income::getIncomeId()
-{
-    return incomeId;
-}
+    int Income::getIncomeId()
+    {
+        return transaction.getTransactionId();
+    }
 
-int Income::getUserId()
-{
-    return userId;
-}
+    int Income::getUserId()
+    {
+        return transaction.getUserId();
+    }
 
-int Income::getIncomeDate()
-{
-    return incomeDate;
-}
+    int Income::getIncomeDate()
+    {
+        return transaction.getTransactionDate();
+    }
 
-string Income::getIncomeName()
-{
-    return incomeName;
-}
+    string Income::getIncomeName()
+    {
+        return transaction.getTransactionName();
+    }
 
-float Income::getIncomeAmount()
-{
-    return incomeAmount;
-}
+    float Income::getIncomeAmount()
+    {
+        return transaction.getTransactionAmount();
+    }
+
 
