@@ -62,11 +62,11 @@ Income FinanceManager::addNewIncome()
 
     incomeAmount = adjunctiveMethods.changeStringIntoFloat(isAmountCorrect);
 
-    income.setIncomeId(incomeId);
+    income.setTransactionId(incomeId);
     income.setUserId(userId);
-    income.setIncomeDate(incomeDate);
-    income.setIncomeName(incomeName);
-    income.setIncomeAmount(incomeAmount);
+    income.setTransactionDate(incomeDate);
+    income.setTransactionName(incomeName);
+    income.setTransactionAmount(incomeAmount);
     incomes.push_back(income);
 
     filesForFinanceManager.addNewIncomeToTheFileWithIncomes(incomeId, userId, incomeDate, incomeName, isAmountCorrect);
@@ -136,11 +136,11 @@ Expense FinanceManager::addNewExpense()
 
     expenseAmount = adjunctiveMethods.changeStringIntoFloat(isAmountCorrect);
 
-    expense.setExpenseId(expenseId);
+    expense.setTransactionId(expenseId);
     expense.setUserId(userId);
-    expense.setExpenseDate(expenseDate);
-    expense.setExpenseName(expenseName);
-    expense.setExpenseAmount(expenseAmount);
+    expense.setTransactionDate(expenseDate);
+    expense.setTransactionName(expenseName);
+    expense.setTransactionAmount(expenseAmount);
     expenses.push_back(expense);
 
     filesForFinanceManager.addNewExpenseToTheFileWithExpenses(expenseId, userId, expenseDate, expenseName, isAmountCorrect);
@@ -151,64 +151,64 @@ Expense FinanceManager::addNewExpense()
 
 int FinanceManager::addIncomeFromSelectedPeriod(Income income, int beginningDate, int endingDate)
 {
-    int incomeDate=income.getIncomeDate();
+    int incomeDate=income.getTransactionDate();
     int userId=income.getUserId();
     if ((incomeDate>=beginningDate) && (incomeDate<=endingDate)&&(userId==ID_OF_LOGGED_IN_USER))
     {
-        return income.getIncomeAmount();
+        return income.getTransactionAmount();
     }
     return 0;
 }
 
 int FinanceManager::addExpenseFromSelectedPeriod(Expense expense, int beginningDate, int endingDate)
 {
-    int expenseDate=expense.getExpenseDate();
+    int expenseDate=expense.getTransactionDate();
     int userId=expense.getUserId();
     if ((expenseDate>=beginningDate) && (expenseDate<=endingDate)&&(userId==ID_OF_LOGGED_IN_USER))
     {
-        return expense.getExpenseAmount();
+        return expense.getTransactionAmount();
     }
     return 0;
 }
 
 void FinanceManager::showTheIncomes(Income income, int beginningDate, int endingDate)
 {
-    int incomeDate=income.getIncomeDate();
+    int incomeDate=income.getTransactionDate();
     int userId=income.getUserId();
 
     if ((incomeDate>=beginningDate) && (incomeDate<=endingDate)&&(userId==ID_OF_LOGGED_IN_USER))
     {
-        cout << "Id: " << income.getIncomeId() << endl;
-        cout << "Date: " <<income.getIncomeDate() << endl;
-        cout << "Name: " <<income.getIncomeName() << endl;
-        cout << "Amount: " << setprecision(16) << income.getIncomeAmount() << endl << endl;
+        cout << "Id: " << income.getTransactionId() << endl;
+        cout << "Date: " <<income.getTransactionDate() << endl;
+        cout << "Name: " <<income.getTransactionName() << endl;
+        cout << "Amount: " << setprecision(16) << income.getTransactionAmount() << endl << endl;
         system ("pause");
     }
 }
 
 void FinanceManager::showTheExpenses(Expense expense, int beginningDate, int endingDate)
 {
-    int expenseDate=expense.getExpenseDate();
+    int expenseDate=expense.getTransactionDate();
     int userId=expense.getUserId();
 
     if ((expenseDate>=beginningDate) && (expenseDate<=endingDate)&&(userId==ID_OF_LOGGED_IN_USER))
     {
-        cout << "Id: " << expense.getExpenseId() << endl;
-        cout << "Date: " <<  expense.getExpenseDate() << endl;
-        cout << "Name: " <<  expense.getExpenseName() << endl;
-        cout << "Amount: " <<  setprecision(16) << expense.getExpenseAmount() << endl << endl;
+        cout << "Id: " << expense.getTransactionId() << endl;
+        cout << "Date: " <<  expense.getTransactionDate() << endl;
+        cout << "Name: " <<  expense.getTransactionName() << endl;
+        cout << "Amount: " <<  setprecision(16) << expense.getTransactionAmount() << endl << endl;
         system ("pause");
     }
 }
 
 bool sortIncomesByDate(Income &p1, Income &p2)
 {
-    return p1.getIncomeDate() < p2.getIncomeDate();
+    return p1.getTransactionDate() < p2.getTransactionDate();
 }
 
 bool sortExpensesByDate(Expense &p1, Expense &p2)
 {
-    return p1.getExpenseDate() < p2.getExpenseDate();
+    return p1.getTransactionDate() < p2.getTransactionDate();
 }
 
 void FinanceManager::displayBalance(int beginningDate, int endingDate)

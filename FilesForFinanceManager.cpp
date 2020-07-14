@@ -84,11 +84,11 @@ vector <Income> FilesForFinanceManager::loadIncomesFromTheFile ()
         float incomeAmount = adjunctiveMethods.changeStringIntoFloat(xml.GetData());
         xml.OutOfElem();
 
-        income.setIncomeId(incomeId);
+        income.setTransactionId(incomeId);
         income.setUserId(userId);
-        income.setIncomeDate(incomeDate);
-        income.setIncomeName(incomeName);
-        income.setIncomeAmount(incomeAmount);
+        income.setTransactionDate(incomeDate);
+        income.setTransactionName(incomeName);
+        income.setTransactionAmount(incomeAmount);
         incomes.push_back(income);
     }
 
@@ -119,11 +119,11 @@ vector <Expense> FilesForFinanceManager::loadExpensesFromTheFile ()
         float expenseAmount = adjunctiveMethods.changeStringIntoFloat(xml.GetData());
         xml.OutOfElem();
 
-        expense.setExpenseId(expenseId);
+        expense.setTransactionId(expenseId);
         expense.setUserId(userId);
-        expense.setExpenseDate(expenseDate);
-        expense.setExpenseName(expenseName);
-        expense.setExpenseAmount(expenseAmount);
+        expense.setTransactionDate(expenseDate);
+        expense.setTransactionName(expenseName);
+        expense.setTransactionAmount(expenseAmount);
         expenses.push_back(expense);
     }
 
